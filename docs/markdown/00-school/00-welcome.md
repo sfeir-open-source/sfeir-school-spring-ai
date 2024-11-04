@@ -2,7 +2,7 @@
 
 # **Welcome to SFEIR School**
 
-## **Spring AI 200**
+## **Spring AI**
 
 ##==##
 
