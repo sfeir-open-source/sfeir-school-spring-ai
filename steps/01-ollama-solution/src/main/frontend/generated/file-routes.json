@@ -1,0 +1,44 @@
+[
+  {
+    "route": "",
+    "flowLayout": false,
+    "params": {},
+    "title": "Home"
+  },
+  {
+    "route": "Chat",
+    "params": {},
+    "children": [
+      {
+        "route": "Chat",
+        "flowLayout": false,
+        "params": {},
+        "title": "Chat"
+      }
+    ]
+  },
+  {
+    "route": "Message",
+    "params": {},
+    "children": [
+      {
+        "route": "Message",
+        "flowLayout": false,
+        "params": {},
+        "title": "Message"
+      }
+    ]
+  },
+  {
+    "route": "PromptInput",
+    "params": {},
+    "children": [
+      {
+        "route": "PromptInput",
+        "flowLayout": false,
+        "params": {},
+        "title": "Prompt Input"
+      }
+    ]
+  }
+]

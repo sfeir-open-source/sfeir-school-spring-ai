@@ -1,6 +1,6 @@
 <!-- .slide:-->
-
-![center h-800](./assets/images/diversemeeting.svg)
+# Un tour de table
+![center](./assets/images/diversemeeting.svg)
 
 ##==##
 
