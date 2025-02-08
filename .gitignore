@@ -2,7 +2,7 @@ target/
 
 # The following files are generated/updated by Hilla
 node_modules/
-src/main/frontend/generated/
+steps/*/src/main/frontend/generated/
 vite.generated.ts
 
 ### IntelliJ IDEA ###
