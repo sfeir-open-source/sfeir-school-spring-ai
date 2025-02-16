@@ -8,3 +8,6 @@ vite.generated.ts
 ### IntelliJ IDEA ###
 .idea/
 *.iml
+
+### MacOS Finder
+**/.DS_Store

@@ -1,3 +1,0 @@
-Votre matricule est votre numéro de salarié interne. C'est un identifiant qui est automatiquement attribué par l'outil de paie SILAE, appelé "Identifiant SILAE".
-
-Vous le trouverez sur votre bulletin. Pour accéder à votre bulletin de paie ou créer votre compte carte restaurant Pluxee, vous aurez besoin de cet identifiant. Nous avons mis en place un espace dédié pour le récupérer dans ALIBEEZ. Il se trouve sur la page d'accueil de votre compte
