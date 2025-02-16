@@ -1,6 +1,5 @@
 package com.example.application.conversation.http;
 
-import com.example.application.conversation.ConverseWithAixolotl;
 import com.example.application.conversation.ConverseWithAssistant;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;

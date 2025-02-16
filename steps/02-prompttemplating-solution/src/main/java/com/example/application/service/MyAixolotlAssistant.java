@@ -1,4 +1,4 @@
-package com.example.application.prompttemplating;
+package com.example.application.service;
 
 import com.example.application.conversation.ConverseWithAssistant;
 import com.example.application.conversation.model.Aixolotl;
@@ -9,10 +9,12 @@ import org.springframework.ai.chat.model.ChatModel;
 import org.springframework.ai.chat.prompt.SystemPromptTemplate;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
+import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 
 import java.util.Map;
 
+@Service
 public class MyAixolotlAssistant implements ConverseWithAssistant {
 
 

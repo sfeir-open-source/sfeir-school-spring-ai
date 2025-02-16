@@ -1,4 +1,4 @@
-# Je personnalise mon assistant aixolotl
+# Lab 02 - Je personnalise mon assistant aixolotl
 Vous venez de créer un assistant permettant d'échanger avec un modèle de langage, félicitation !
 Nous allons maintenant personnaliser notre assistant. En effet, pour l'instant celui-ci ne fait que transmettre le prompt
 de notre utilisateur au modèle de langage et renvoie la réponse du modèle tel quel.
