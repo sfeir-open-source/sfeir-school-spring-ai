@@ -1,0 +1,17 @@
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}
+
+html {
+    font-size: 1.1425rem;
+    line-height: 1.225rem;
+    height: 100vh;
+    background: linear-gradient(225deg, rgb(15, 16, 89), rgb(17, 15, 76), rgb(18, 14, 64), rgb(19, 12, 52), rgb(18, 9, 41), rgb(15, 6, 30), rgb(8, 3, 19), rgb(0, 0, 0));
+}
+
+body {
+    margin: 0;
+    max-width: 100vw;
+    color: #b7b7be;
+}
