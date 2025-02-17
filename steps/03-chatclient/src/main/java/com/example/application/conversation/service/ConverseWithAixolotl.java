@@ -1,18 +1,10 @@
 package com.example.application.conversation.service;
 
 import com.example.application.conversation.ConverseWithAssistant;
-import com.example.application.conversation.configuration.Aixolotl;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import org.springframework.ai.chat.messages.SystemMessage;
-import org.springframework.ai.chat.messages.UserMessage;
-import org.springframework.ai.chat.model.ChatModel;
-import org.springframework.ai.chat.prompt.SystemPromptTemplate;
-import org.springframework.stereotype.Service;
-import reactor.core.publisher.Flux;
-
-import static java.util.Map.entry;
-import static java.util.Map.ofEntries;
+import com.example.application.conversation.configuration.Aixolotl;import lombok.AccessLevel;import lombok.AllArgsConstructor;
+import org.springframework.ai.chat.client.ChatClient;import org.springframework.ai.chat.messages.SystemMessage;import org.springframework.ai.chat.messages.UserMessage;import org.springframework.ai.chat.model.ChatModel;
+import org.springframework.ai.chat.prompt.SystemPromptTemplate;import org.springframework.stereotype.Service;
+import reactor.core.publisher.Flux;import static java.util.Map.entry;import static java.util.Map.ofEntries;
 
 @Service
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
@@ -34,3 +26,4 @@ public class ConverseWithAixolotl implements ConverseWithAssistant {
     ).getText();
   }
 }
+

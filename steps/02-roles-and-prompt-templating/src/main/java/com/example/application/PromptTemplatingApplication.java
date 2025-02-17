@@ -13,9 +13,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 @SpringBootApplication
 @Theme(value = "labs")
-public class OllamaSolutionApplication implements AppShellConfigurator {
+public class PromptTemplatingApplication implements AppShellConfigurator {
 
     public static void main(String[] args) {
-        SpringApplication.run(OllamaSolutionApplication.class, args);
+        SpringApplication.run(PromptTemplatingApplication.class, args);
     }
 }

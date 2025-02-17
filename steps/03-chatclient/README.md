@@ -1,46 +1,21 @@
-# Aixolotl Chat Assitant
+# Lab 03 - Ajoutons de la mémoire et un peu de modération à notre Aixolotl 🧠
 
+Nous avons vu comment structurer nos prompts, "templatiser" et définir un rôle spécifique par message.
+Toutes ces techniques apportent du contexte à notre requête utilisateur afin d'obtenir une réponse la plus précise possible.
 
-![Header image](header.svg)
-A cool axolotl using small language models to answer corportate questions.
+Vous avez sûrement constaté un comportement "poisson rouge" de notre assistant, il ne se souvient pas de l'ensemble de
+la conversation.
 
-> Our preferred models :
-> - nemotron-mini:4b-instruct-q5_K_M
-> - granite3-dense:2b
-> - llama3.2:3b-instruct-q4_K_M
->
-> Correct performance with 2,6 GHz Intel Core i7 (6 cores) on MacOS
+Dans ce troisème lab, nous allons découvrir les APIs `ChatMemory`, `ChatClient` et `Advisor` et les utiliser pour
+ajouter de la mémoire à notre agent Aixolotl. Vous allez également apprendre à modérer une liste de mots 🤐.
+ 
+## Ce qu'il faut faire
+Pour ce lab vous devez :
+- Dans la fonction `converse`, remplacer l'utilisation de `ChatModel` par `ChatClient` pour pouvoir utiliser les advisors
+- Dans le package `configuration`, créer la classe `AixolotlMemory` qui implémente l'interface `ChatMemory` de Spring AI 
+Cette classe devra stocker les messages de la conversation dans une Map
+  - Implémenter les méthodes add, get et clear de l'interface `ChatMemory`
+- Utiliser l'advisor `MessageChatMemoryAdvisor` pour donner de la mémoire à votre agent Aixolotl
+- Amusez-vous à modérer une liste de mots via l'advisor `SafeGuardAdvisor`
 
-# UI preview
-![aixo-conv.png](aixo-conv.png)
-
-# ⚙️ Stack
-- Ollama (0.5.4)
-- Spring AI (1.0.0-M5)
-- Java 21
-- React 17 (Hilla)
-- Testcontainers
-- Docker
-
-# 🧠 Functions
-- Current date and time
-
-## Troubleshooting
-- llama/nvidia models are struggling with function calling 😭 
-
-
-## Project structure
-
-<table style="width:100%; text-align: left;">
-  <tr><th>Directory</th><th>Description</th></tr>
-  <tr><td><code>src/main/frontend/</code></td><td>Client-side source directory</td></tr>
-  <tr><td><code>src/main/java/&lt;groupId&gt;/</code></td><td>Server-side 
-source directory, contains the server-side Java views</td></tr>
-  <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;<code>Application.java</code></td><td>Server entry-point</td></tr>
-</table>
-
-## Useful links
-
-- Read the documentation at [hilla.dev/docs](https://hilla.dev/docs/).
-- Ask questions on [Stack Overflow](https://stackoverflow.com/questions/tagged/vaadin) or join our [Forum](https://vaadin.com/forum).
-- Report issues, create pull requests in [GitHub](https://github.com/vaadin/hilla).
+*Vous trouverez [ici](https://docs.spring.io/spring-ai/reference/api/chatclient.html) la documentation sur l'API `ChatClient`*

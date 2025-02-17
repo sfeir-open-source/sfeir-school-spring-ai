@@ -1,46 +1,103 @@
-# Aixolotl Chat Assitant
+# Solution du Lab 03 - Ajoutons de la mémoire et un peu de modération à notre Aixolotl 🧠
+
+Découverte des APIs `ChatMemory`, `ChatClient` et `Advisor`.
 
 
-![Header image](header.svg)
-A cool axolotl using small language models to answer corportate questions.
+## Utilisation de `ChatClient` à la place de `ChatModel`
 
-> Our preferred models :
-> - nemotron-mini:4b-instruct-q5_K_M
-> - granite3-dense:2b
-> - llama3.2:3b-instruct-q4_K_M
->
-> Correct performance with 2,6 GHz Intel Core i7 (6 cores) on MacOS
+Afin d'intercepter les requêtes et les réponses entre l'utilisateur et le modèle d'IA 
+nous allons devoir utiliser l'API `Advisor`.
+Pour en profiter, il est essentiel d'utiliser un `ChatClient` qui est une enveloppe autour
+du `ChatModel` (qui était limité à simplement envoyer et recevoir des messages).
 
-# UI preview
-![aixo-conv.png](aixo-conv.png)
+> 💡 Une instance de `ChatClient` utilise un `ChatModel` pour communiquer avec le modèle d'IA.
+> Nous allons pouvoir doper notre Aixolotl avec plus d'options.
 
-# ⚙️ Stack
-- Ollama (0.5.4)
-- Spring AI (1.0.0-M5)
-- Java 21
-- React 17 (Hilla)
-- Testcontainers
-- Docker
+La fonction `converse` devient donc :
 
-# 🧠 Functions
-- Current date and time
+```java
+public Flux<String> converse(final String prompt) {
+    return ChatClient.builder(chatModel).build()
+      .prompt()
+      .system(buildSystemPrompt())
+      .user(prompt)
+      .stream()
+      .content();
+  }
+```
 
-## Troubleshooting
-- llama/nvidia models are struggling with function calling 😭 
+Nous sommes maintenant prêt à ajouter un `Advisor` permettant de donner de la mémoire à notre IA.
 
+## Utilisation de l'interface `ChatMemory`
 
-## Project structure
+La classe `AixolotlMemory` à créer devra implémenter l'interface `ChatMemory` de Spring AI.
 
-<table style="width:100%; text-align: left;">
-  <tr><th>Directory</th><th>Description</th></tr>
-  <tr><td><code>src/main/frontend/</code></td><td>Client-side source directory</td></tr>
-  <tr><td><code>src/main/java/&lt;groupId&gt;/</code></td><td>Server-side 
-source directory, contains the server-side Java views</td></tr>
-  <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;<code>Application.java</code></td><td>Server entry-point</td></tr>
-</table>
+Cette interface, très simple, nous forcera à implémenter trois méthodes : `add`, `get` et `clear`. 
 
-## Useful links
+Pour donner de la mémoire à notre mascotte, nous allons stocker les messages de la conversation dans
+une `Map`. La clé sera un identifiant unique qui représente la conversation et la valeur sera une simple
+liste de messages lié à cette conversation.
 
-- Read the documentation at [hilla.dev/docs](https://hilla.dev/docs/).
-- Ask questions on [Stack Overflow](https://stackoverflow.com/questions/tagged/vaadin) or join our [Forum](https://vaadin.com/forum).
-- Report issues, create pull requests in [GitHub](https://github.com/vaadin/hilla).
+Cette `Map` sera déclarée et initialisée en tant qu'attribut de classe, les données seront donc dans la
+mémoire RAM. On peut imaginer une implémentation plus complexe en stockant les messages dans
+une base de données à part.
+
+```java
+@Component
+public class AixolotlMemory implements ChatMemory {
+
+  private static final Map<String, List<Message>> inMemoryMessages = new ConcurrentHashMap<>();
+
+  @Override
+  public void add(String conversationId, List<Message> messages) {
+    inMemoryMessages.computeIfAbsent(conversationId, id -> new ArrayList<>()).addAll(messages);
+  }
+
+  @Override
+  public List<Message> get(String conversationId, int lastN) {
+    List<Message> messages = inMemoryMessages.getOrDefault(conversationId, new ArrayList<>());
+    return messages
+      .stream()
+      .skip(Math.max(0, messages.size() - lastN))
+      .toList();
+  }
+
+  @Override
+  public void clear(String conversationId) {
+    inMemoryMessages.clear();
+  }
+}
+```
+
+Pour augmenter notre agent de cette mémoire, nous allons utiliser l'advisor `MessageChatMemoryAdvisor` :
+
+```java
+private final UUID conversationId = UUID.randomUUID();
+private final ChatMemory aixolotlMemory;
+
+public Flux<String> converse(final String prompt) {
+  return ChatClient.builder(chatModel)
+    // ...
+    .advisors(
+      new MessageChatMemoryAdvisor(aixolotlMemory, conversationId.toString(), 50)
+    )
+    .stream()
+    .content()
+    ;
+}
+```
+
+## Modération d'une liste de mots via `SafeGuardAdvisor` 🤐
+
+```java
+public Flux<String> converse(final String prompt) {
+  return ChatClient.builder(chatModel)
+    // ...
+    .advisors(
+      new SafeGuardAdvisor(List.of("caca", "boudin"))
+    )
+    .stream()
+    .content()
+    ;
+}
+```

@@ -1,4 +1,4 @@
-# Solution du Lab 02 - Roles et Prompt templating
+# Solution du Lab 02 - Rôles et Prompt templating
 
 ## Découverte de l'API `Message` et `PromptTemplate`
 
@@ -28,6 +28,24 @@ public Flux<String> converse(final String prompt) {
     new SystemMessage(systemPromptWithTemplateApplied),
     new UserMessage(prompt));
 }
+```
+
+On peut refactorer ainsi : 
+
+```java
+public Flux<String> converse(final String prompt) {
+  return chatModel.stream(
+    new SystemMessage(buildSystemPrompt()),
+    new UserMessage(prompt));
+}
+
+private static String buildSystemPrompt() {
+    final var systemPromptTemplate = new SystemPromptTemplate(Aixolotl.getSystemPromptTemplate());
+    return systemPromptTemplate.createMessage(ofEntries(
+      entry("name", "Azul"),
+      entry("company", "Sfeir"))
+    ).getText();
+  }
 ```
 
 *La documentation Spring sur l'API `Message` et `PromptTemplate`  est disponible

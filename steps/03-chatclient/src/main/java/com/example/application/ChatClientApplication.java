@@ -14,9 +14,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 @SpringBootApplication
 @Theme(value = "labs")
-public class ChatClientSolutionApplication implements AppShellConfigurator {
+public class ChatClientApplication implements AppShellConfigurator {
 
     public static void main(String[] args) {
-        SpringApplication.run(ChatClientSolutionApplication.class, args);
+        SpringApplication.run(ChatClientApplication.class, args);
     }
+
 }
