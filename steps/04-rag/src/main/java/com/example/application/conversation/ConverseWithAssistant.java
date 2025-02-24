@@ -7,5 +7,4 @@ public interface ConverseWithAssistant {
     default Flux<String> converse(final String prompt){
       return Flux.just(prompt);
     }
-
 }
