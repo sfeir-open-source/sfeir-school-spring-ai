@@ -1,0 +1,33 @@
+Une fois par an, le plan de développement des compétences (ex plan de formation) est revu par la direction et présenté au CSE.
+
+Les formations sont attribuées tout au long de l’année en fonction des besoins de l’entreprise / du salarié et du budget disponible.
+
+Procédure
+
+Toute demande de formation doit être préalablement faite par mail à son responsable hiérarchique qui se rapprochera de son directeur de rattachement pour validation.
+
+Cette demande doit comporter l’ensemble des points suivants :
+
+    Titre et description
+
+    Organisme (interne/externe)
+
+    Le coût
+
+    La durée en jour et le nombre d’heures
+
+
+Lorsqu’une formation a été validée/confirmée par la direction, le salarié doit se rapprocher de l’organisme de formation pour le montage du dossier, puis le soumettre au service Adminrh (adminrh@sfeir.com) par mail pour complétude et signature accompagné du mail d’accord reçu en interne.
+
+Le service adminrh prend le relais en matière du suivi et de paiement.
+
+Le salarié reste l’interlocuteur privilégié entre l’organisme de formation et SFEIR notamment en matière de suivi de la formation (changement de date, transmission des informations au service adminrh).
+
+
+En parallèle, le salarié doit compléter sa fiche formation dans LUCCA :
+
+Dossier RH => Compétences / Formations / Evénement => Formation
+
+Puis dans le menu formation : “Ajouter une occurrence”
+
+Cette procédure est obligatoire et doit être faite avant le début de la formation. Le service AdminRH n’assura pas la signature des documents si aucune information n’a été complétée dans LUCCA.
