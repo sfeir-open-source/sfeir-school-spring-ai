@@ -2,18 +2,6 @@ networks:
   net:
     driver: bridge
 services:
-  #  server:
-  #    image: ghcr.io/chroma-core/chroma:latest
-  #    environment:
-  #      - IS_PERSISTENT=TRUE
-  #    volumes:
-  #      # Default configuration for persist_directory in chromadb/config.py
-  #      # Currently it's located in "/chroma/chroma/"
-  #      - chroma-data:/chroma/chroma/
-  #    ports:
-  #      - 8000:8000
-  #    networks:
-  #      - net
   postgresql:
     hostname: 127.0.0.1
     image: pgvector/pgvector:pg16
@@ -28,6 +16,3 @@ services:
     volumes:
       - ./postgres/data:/var/lib/postgresql/data
       - ./postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
-#volumes:
-#  chroma-data:
-#    driver: local
