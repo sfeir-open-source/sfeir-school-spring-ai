@@ -31,9 +31,9 @@ public class DataLoaderService {
 
   public void load() {
 
-    TextSplitter textSplitter = new TokenTextSplitter(10,
+    TextSplitter textSplitter = new TokenTextSplitter(20,
       5,
-      1,
+      5,
       500,
       true);
 

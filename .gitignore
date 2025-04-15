@@ -5,9 +5,13 @@ node_modules/
 steps/*/src/main/frontend/generated/
 vite.generated.ts
 
-### IntelliJ IDEA ###
+### IDE ###
 .idea/
 *.iml
+.vscode/
+postgres/
 
 ### MacOS Finder
 **/.DS_Store
+
+C/

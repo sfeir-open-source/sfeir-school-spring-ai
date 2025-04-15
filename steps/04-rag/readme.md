@@ -19,7 +19,21 @@ Dans ce lab vous devrez :
 - exécuter le docker-compose.yml fourni à la racine du projet
 Il vous permettra de récupérer une image docker pgvector, base de données vectorielle. Il vous
 faudra lancer le script init.sql pour initialiser la bdd :
-![image](/assets/init-sql.png)
+
+```sql
+CREATE EXTENSION IF NOT EXISTS vector;
+CREATE EXTENSION IF NOT EXISTS hstore;
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+
+CREATE TABLE IF NOT EXISTS vector_store (
+                                            id uuid DEFAULT uuid_generate_v4() PRIMARY KEY,
+    content text,
+    metadata json,
+    embedding vector(384)
+    );
+
+CREATE INDEX ON vector_store USING HNSW (embedding vector_cosine_ops);
+```
 
 💡 : *avec le starter `spring-ai-pgvector-store-spring-boot-starter` il n'est plus nécessaire de charger
 le script sql, il est exécuté par défaut lorsque la propriété `spring.ai.vectorstore.pgvector.initialize-schema`

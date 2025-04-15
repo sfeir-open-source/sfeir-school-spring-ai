@@ -4,14 +4,10 @@ import com.example.application.conversation.ConverseWithAssistant;
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.ai.chat.client.advisor.MessageChatMemoryAdvisor;
 import org.springframework.ai.chat.client.advisor.QuestionAnswerAdvisor;
-import org.springframework.ai.chat.client.advisor.RetrievalAugmentationAdvisor;
 import org.springframework.ai.chat.client.advisor.SafeGuardAdvisor;
-import org.springframework.ai.chat.client.advisor.api.Advisor;
 import org.springframework.ai.chat.memory.ChatMemory;
 import org.springframework.ai.chat.model.ChatModel;
 import org.springframework.ai.chat.prompt.SystemPromptTemplate;
-import org.springframework.ai.rag.preretrieval.query.transformation.RewriteQueryTransformer;
-import org.springframework.ai.rag.retrieval.search.VectorStoreDocumentRetriever;
 import org.springframework.ai.vectorstore.SearchRequest;
 import org.springframework.ai.vectorstore.VectorStore;
 import org.springframework.ai.vectorstore.filter.FilterExpressionBuilder;
@@ -19,11 +15,9 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
-import static java.util.Map.entry;
-import static java.util.Map.ofEntries;
+import static java.util.Map.*;
 
 @Service
 public class ConverseWithAixolotl implements ConverseWithAssistant {
@@ -60,11 +54,13 @@ public class ConverseWithAixolotl implements ConverseWithAssistant {
       ;
   }
 
+
   FilterExpressionBuilder b = new FilterExpressionBuilder();
 
   SearchRequest searchRequest = SearchRequest
     .builder()
     .filterExpression(
+      // préciser la recherche de document dans la catégorie adminrh
       b.eq("category", "adminrh")
         .build()
     )
