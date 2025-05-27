@@ -16,7 +16,6 @@ public class ConverseWithAixolotlHttpApi {
         this.converseWithAssistant = converseWithAssistant;
     }
 
-
     @GetMapping(value = "/conversation/stream", produces = MediaType.TEXT_PLAIN_VALUE)
     public Flux<String> streamResponse(@RequestParam(value = "userMessage") final String userMessage) {
         return converseWithAssistant.converse(userMessage);

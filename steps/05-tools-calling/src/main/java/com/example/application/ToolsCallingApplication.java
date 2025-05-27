@@ -15,16 +15,16 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 @SpringBootApplication
 @Theme(value = "labs")
-public class RagSolutionApplication implements AppShellConfigurator, CommandLineRunner {
+public class ToolsCallingApplication implements AppShellConfigurator, CommandLineRunner {
 
   private final DataLoaderService dataLoaderService;
 
-  public RagSolutionApplication(DataLoaderService dataLoaderService) {
+  public ToolsCallingApplication(DataLoaderService dataLoaderService) {
     this.dataLoaderService = dataLoaderService;
   }
 
   public static void main(String[] args) {
-    SpringApplication.run(RagSolutionApplication.class, args);
+    SpringApplication.run(ToolsCallingApplication.class, args);
   }
 
   @Override

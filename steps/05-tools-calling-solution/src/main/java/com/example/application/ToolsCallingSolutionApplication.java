@@ -1,8 +1,11 @@
 package com.example.application;
 
+
 import com.example.application.conversation.service.DataLoaderService;
 import com.vaadin.flow.component.page.AppShellConfigurator;
 import com.vaadin.flow.theme.Theme;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -15,20 +18,25 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 @SpringBootApplication
 @Theme(value = "labs")
-public class RagSolutionApplication implements AppShellConfigurator, CommandLineRunner {
+public class ToolsCallingSolutionApplication implements AppShellConfigurator, CommandLineRunner {
 
   private final DataLoaderService dataLoaderService;
 
-  public RagSolutionApplication(DataLoaderService dataLoaderService) {
+  Logger logger = LoggerFactory.getLogger(ToolsCallingSolutionApplication.class);
+
+
+  public ToolsCallingSolutionApplication(DataLoaderService dataLoaderService) {
     this.dataLoaderService = dataLoaderService;
   }
 
   public static void main(String[] args) {
-    SpringApplication.run(RagSolutionApplication.class, args);
+    SpringApplication.run(ToolsCallingSolutionApplication.class, args);
   }
 
   @Override
   public void run(String... args) throws Exception {
+    logger.info("Loading data...");
     dataLoaderService.load();
+
   }
 }

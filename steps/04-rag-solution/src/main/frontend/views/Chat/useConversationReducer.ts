@@ -23,7 +23,7 @@ export const useConversationStore = () => {
 
                 case 'streamAixolotlMessage':
                     const messagesLength = messages.length;
-                    const lastMessage = messages.at(-1);
+                    const lastMessage = messages.length > 0 ? messages[messages.length - 1] : undefined
                     if (messagesLength && lastMessage?.from === 'User') {
                         return [
                             ...messages,

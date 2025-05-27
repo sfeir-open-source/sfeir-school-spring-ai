@@ -22,51 +22,51 @@ import static java.util.Map.*;
 @Service
 public class ConverseWithAixolotl implements ConverseWithAssistant {
 
-  private final UUID conversationId = UUID.randomUUID();
-  private final ChatModel chatModel;
-  private final ChatMemory aixolotlMemory;
-  private final VectorStore vectorStore;
   private static final int MAX_RESULTS = 3;
 
-  @Value("${sensitiveWords}")
-  private List<String> sensitiveWords;
+  private final ChatClient chatClient;
 
-  public ConverseWithAixolotl(ChatModel chatModel, ChatMemory aixolotlMemory, VectorStore vectorStore) {
-    this.chatModel = chatModel;
-    this.aixolotlMemory = aixolotlMemory;
-    this.vectorStore = vectorStore;
+  public ConverseWithAixolotl(ChatModel chatModel,
+                              ChatMemory chatMemory,
+                              VectorStore vectorStore,
+                              EmailService emailService,
+                              @Value("${sensitiveWords}")  List<String> sensitiveWords) {
+
+    FilterExpressionBuilder b = new FilterExpressionBuilder();
+
+    SearchRequest searchRequest = SearchRequest
+      .builder()
+      .filterExpression(
+        // préciser la recherche de document dans la catégorie adminrh
+        b.eq("category", "adminrh")
+          .build()
+      )
+      .similarityThreshold(0.9)
+      .topK(MAX_RESULTS)
+      .build();
+
+    this.chatClient = ChatClient.builder(chatModel)
+      .defaultSystem(buildSystemPrompt())
+      .defaultTools(emailService)
+      .defaultAdvisors(
+        MessageChatMemoryAdvisor.builder(chatMemory).build(),
+        new QuestionAnswerAdvisor(vectorStore), // RAG
+        new SafeGuardAdvisor(sensitiveWords)
+      )
+      .build();
+
   }
 
   @Override
   public Flux<String> converse(final String prompt) {
-    return ChatClient.builder(chatModel)
-      .build()
+
+    return this.chatClient
       .prompt()
-      .system(buildSystemPrompt())
       .user(prompt)
-      .advisors(
-        new MessageChatMemoryAdvisor(aixolotlMemory, conversationId.toString(), 50),
-        new QuestionAnswerAdvisor(this.vectorStore, searchRequest), // RAG
-        new SafeGuardAdvisor(sensitiveWords)
-      )
       .stream()
-      .content()
-      ;
+      .content();
   }
 
-
-  FilterExpressionBuilder b = new FilterExpressionBuilder();
-
-  SearchRequest searchRequest = SearchRequest
-    .builder()
-    .filterExpression(
-      // préciser la recherche de document dans la catégorie adminrh
-      b.eq("category", "adminrh")
-        .build()
-    )
-    .similarityThreshold(0.9)
-    .topK(MAX_RESULTS)
-    .build();
 
   private static String buildSystemPrompt() {
     final var systemPromptTemplate = new SystemPromptTemplate("""

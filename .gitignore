@@ -15,5 +15,8 @@ postgres/
 **/.DS_Store
 
 C/
+.npmrc
+pnpm-lock.yaml
+
 
 .vaadin-node-tasks.lock
