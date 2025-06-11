@@ -14,5 +14,5 @@ services:
       - POSTGRES_PASSWORD=ChangeMe
       - POSTGRES_HOST_AUTH_METHOD=trust
     volumes:
-      - ./postgres/data:/var/lib/postgresql/data
-      - ./postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./postgres:/var/lib/postgresql
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
