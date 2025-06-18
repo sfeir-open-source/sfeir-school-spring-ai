@@ -1,0 +1,18 @@
+networks:
+  net:
+    driver: bridge
+services:
+  postgresql:
+    hostname: 127.0.0.1
+    image: pgvector/pgvector:pg16
+    ports:
+      - 5432:5432
+    restart: always
+    environment:
+      - POSTGRES_DB=postgres_db
+      - POSTGRES_USER=myuser
+      - POSTGRES_PASSWORD=ChangeMe
+      - POSTGRES_HOST_AUTH_METHOD=trust
+    volumes:
+      - ./postgres/data:/var/lib/postgresql/data
+      - ./postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
