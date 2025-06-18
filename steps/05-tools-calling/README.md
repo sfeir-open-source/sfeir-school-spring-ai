@@ -51,4 +51,4 @@ Il est possible de renseigner via le prompt de l'utilisateur les paramètres né
 utilisant l'annotation `@ToolParam`.
 
 ### Tester l'outil
-Amusez-vous à tester votre outil en demandant à AIxolotl d'envoyer un mail de bienvenue, ou de demande de droit d'accès par exemple.
+Amusez-vous à tester votre outil en demandant à AIxolotl d'envoyer un mail afin d'obtenir les droits d'accès.

@@ -1,6 +1,7 @@
 package com.example.application.conversation.service;
 
 import com.example.application.conversation.ConverseWithAssistant;
+import com.example.application.conversation.tool.EmailSenderTool;
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.ai.chat.client.advisor.MessageChatMemoryAdvisor;
 import org.springframework.ai.chat.client.advisor.SafeGuardAdvisor;
@@ -29,7 +30,7 @@ public class ConverseWithAixolotl implements ConverseWithAssistant {
   public ConverseWithAixolotl(ChatModel chatModel,
                               ChatMemory chatMemory,
                               VectorStore vectorStore,
-                              EmailService emailService,
+                              EmailSenderTool emailService,
                               @Value("${sensitiveWords}")  List<String> sensitiveWords) {
 
     FilterExpressionBuilder b = new FilterExpressionBuilder();
@@ -50,7 +51,7 @@ public class ConverseWithAixolotl implements ConverseWithAssistant {
       .defaultTools(emailService)
       .defaultAdvisors(
         MessageChatMemoryAdvisor.builder(chatMemory).build(),
-        new QuestionAnswerAdvisor(vectorStore), // RAG
+        new QuestionAnswerAdvisor(vectorStore),
         new SafeGuardAdvisor(sensitiveWords)
       )
       .build();
