@@ -9,11 +9,11 @@ import com.sfeir.calendar.listrecords.RetrieveRecords;
 import com.sfeir.calendar.persisence.entity.CalendarItemJpaEntity;
 
 @Service
-public class CalendarRecordDatabase implements RetrieveRecords {
+public class CalendarRecordRetriever implements RetrieveRecords {
 
     private final CalendarItemRepository repository;
 
-    public CalendarRecordDatabase(CalendarItemRepository repository) {
+    public CalendarRecordRetriever(CalendarItemRepository repository) {
         this.repository = repository;
     }
 
