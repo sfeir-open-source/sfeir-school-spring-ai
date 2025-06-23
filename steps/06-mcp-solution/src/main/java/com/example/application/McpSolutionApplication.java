@@ -18,19 +18,19 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 @SpringBootApplication
 @Theme(value = "labs")
-public class ToolsCallingSolutionApplication implements AppShellConfigurator, CommandLineRunner {
+public class McpSolutionApplication implements AppShellConfigurator, CommandLineRunner {
 
   private final DataLoaderService dataLoaderService;
 
-  Logger logger = LoggerFactory.getLogger(ToolsCallingSolutionApplication.class);
+  Logger logger = LoggerFactory.getLogger(McpSolutionApplication.class);
 
 
-  public ToolsCallingSolutionApplication(DataLoaderService dataLoaderService) {
+  public McpSolutionApplication(DataLoaderService dataLoaderService) {
     this.dataLoaderService = dataLoaderService;
   }
 
   public static void main(String[] args) {
-    SpringApplication.run(ToolsCallingSolutionApplication.class, args);
+    SpringApplication.run(McpSolutionApplication.class, args);
   }
 
   @Override

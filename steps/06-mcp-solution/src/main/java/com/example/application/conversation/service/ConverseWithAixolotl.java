@@ -2,8 +2,10 @@ package com.example.application.conversation.service;
 
 import com.example.application.conversation.ConverseWithAssistant;
 import com.example.application.conversation.tool.EmailSenderTool;
+
 import io.modelcontextprotocol.client.McpSyncClient;
 import lombok.extern.slf4j.Slf4j;
+
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.ai.chat.client.advisor.MessageChatMemoryAdvisor;
 import org.springframework.ai.chat.client.advisor.SafeGuardAdvisor;
@@ -18,11 +20,14 @@ import org.springframework.ai.vectorstore.filter.FilterExpressionBuilder;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
+
 import reactor.core.publisher.Flux;
 
 import java.util.*;
 
 import static java.util.Map.*;
+
+import org.springframework.ai.tool.ToolCallbackProvider;
 
 @Slf4j
 @Service
@@ -36,6 +41,7 @@ public class ConverseWithAixolotl implements ConverseWithAssistant {
                               ChatMemory chatMemory,
                               VectorStore vectorStore,
                               EmailSenderTool emailService,
+                              ToolCallbackProvider tools,
                               @Value("${sensitiveWords}")  List<String> sensitiveWords) {
 
     FilterExpressionBuilder b = new FilterExpressionBuilder();
@@ -54,6 +60,7 @@ public class ConverseWithAixolotl implements ConverseWithAssistant {
     this.chatClient = ChatClient.builder(chatModel)
       .defaultSystem(buildSystemPrompt())
       .defaultTools(emailService)
+      .defaultToolCallbacks(tools)
       .defaultAdvisors(
         MessageChatMemoryAdvisor.builder(chatMemory).build(),
         new QuestionAnswerAdvisor(vectorStore),
