@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: Simple calendar server
+  ai:
+    mcp:
+      server:
+        name: calendar-server
+        sse-message-endpoint: /mcp/message
+        stdio: false
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    defer-datasource-initialization: true
+  h2:
+    console:
+      enabled: true
+  datasource:
+    url: jdbc:h2:mem:calendar
+    username: sa
+    password:
+    driverClassName: org.h2.Driver
+    hibernate:
+      ddl-auto: create-drop
