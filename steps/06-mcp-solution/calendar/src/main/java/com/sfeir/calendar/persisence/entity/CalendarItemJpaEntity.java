@@ -16,6 +16,7 @@ import jakarta.persistence.Id;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.NoArgsConstructor;
 
 @Setter
 @Getter
@@ -30,11 +31,12 @@ public class CalendarItemJpaEntity {
 
     @JdbcTypeCode(SqlTypes.JSON)
     @Column(columnDefinition = "JSON")
-    private Details detail;
+    private Details detail = new Details();
 
     @Getter
     @Setter
-    public static class Details implements Serializable {
+    @NoArgsConstructor
+    public class Details implements Serializable {
 
         private LocalDate day;
         private LocalTime from;
