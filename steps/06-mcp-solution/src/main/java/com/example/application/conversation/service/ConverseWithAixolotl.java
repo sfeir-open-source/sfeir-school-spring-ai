@@ -62,7 +62,9 @@ public class ConverseWithAixolotl implements ConverseWithAssistant {
       .defaultTools(emailService)
       .defaultToolCallbacks(tools)
       .defaultAdvisors(
-        MessageChatMemoryAdvisor.builder(chatMemory).build(),
+        MessageChatMemoryAdvisor.builder(chatMemory)
+          .conversationId(UUID.randomUUID().toString())
+        .build(),
         new QuestionAnswerAdvisor(vectorStore),
         new SafeGuardAdvisor(sensitiveWords)
       )

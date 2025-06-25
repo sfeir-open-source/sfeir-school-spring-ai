@@ -12,6 +12,7 @@ import java.util.concurrent.ConcurrentHashMap;
 @Component
 public class AixolotlMemory implements ChatMemory {
 
+  private static final int MAX_MESSAGES = 100;
   private static final Map<String, List<Message>> inMemoryMessages = new ConcurrentHashMap<>();
 
   @Override
@@ -24,7 +25,7 @@ public class AixolotlMemory implements ChatMemory {
     List<Message> messages = inMemoryMessages.getOrDefault(conversationId, new ArrayList<>());
     return  messages
       .stream()
-      .skip(Math.max(0, messages.size()))
+      .skip(Math.max(0, messages.size() - MAX_MESSAGES))
       .toList();
   }
 
