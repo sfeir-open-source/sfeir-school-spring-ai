@@ -1,4 +1,4 @@
-package com.sfeir.calendar.persisence;
+package com.sfeir.calendar.persisence.repository;
 
 import java.util.UUID;
 

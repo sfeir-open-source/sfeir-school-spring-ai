@@ -7,16 +7,15 @@ import org.springframework.stereotype.Service;
 
 import com.sfeir.calendar.domain.model.CalendarRecord;
 
+import lombok.RequiredArgsConstructor;
+
 @Service
+@RequiredArgsConstructor
 public class ListCalendarRecords {
 
   private final RetrieveRecords retrieveRecords;
-  
-  public ListCalendarRecords(RetrieveRecords retrieveRecords) {
-    this.retrieveRecords = retrieveRecords;
-  }
 
-  @Tool(description = "List the user agenda, calendar and meeting items, tasks and appointments")
+  @Tool(name="listCalendarItems", description = "List the user agenda, calendar and meeting items, tasks and appointments")
   public List<CalendarRecord> listCalendarItems() {
     return retrieveRecords.getAll();
   }

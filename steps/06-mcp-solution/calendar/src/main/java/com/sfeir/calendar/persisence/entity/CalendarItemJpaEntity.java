@@ -1,8 +1,7 @@
 package com.sfeir.calendar.persisence.entity;
 
-import java.io.Serializable;
-import java.time.LocalDate;
-import java.time.LocalTime;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.UUID;
 
 import org.hibernate.annotations.JdbcTypeCode;
@@ -16,9 +15,7 @@ import jakarta.persistence.Id;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.NoArgsConstructor;
 
-@Setter
 @Getter
 @Entity(name = "CALENDAR_ITEM")
 public class CalendarItemJpaEntity {
@@ -28,19 +25,9 @@ public class CalendarItemJpaEntity {
     @Column(nullable = false, updatable = false)
     @Setter(AccessLevel.PRIVATE)
     private UUID id;
-
+    
     @JdbcTypeCode(SqlTypes.JSON)
     @Column(columnDefinition = "JSON")
-    private Details detail = new Details();
-
-    @Getter
-    @Setter
-    @NoArgsConstructor
-    public class Details implements Serializable {
-
-        private LocalDate day;
-        private LocalTime from;
-        private LocalTime to;
-        private String description;
-    }
+    @Setter(AccessLevel.PRIVATE)
+    private Map<String, String> detail = new HashMap<>();
 }

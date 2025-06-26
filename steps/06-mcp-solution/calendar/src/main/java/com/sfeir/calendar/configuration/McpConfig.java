@@ -5,6 +5,7 @@ import org.springframework.ai.tool.method.MethodToolCallbackProvider;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import com.sfeir.calendar.CurrentTime;
 import com.sfeir.calendar.createcalendarrecord.CreateCalendarRecord;
 import com.sfeir.calendar.listrecords.ListCalendarRecords;
 
@@ -12,7 +13,9 @@ import com.sfeir.calendar.listrecords.ListCalendarRecords;
 public class McpConfig {
 
     @Bean
-    public ToolCallbackProvider toolCallbackProvider(final ListCalendarRecords listCalendarRecords, final CreateCalendarRecord createCalendarRecord) {
-        return MethodToolCallbackProvider.builder().toolObjects(listCalendarRecords, createCalendarRecord).build();
+    public ToolCallbackProvider toolCallbackProvider(
+        final ListCalendarRecords listCalendarRecords, 
+        final CreateCalendarRecord createCalendarRecord, CurrentTime currentTime) {
+        return MethodToolCallbackProvider.builder().toolObjects(listCalendarRecords, createCalendarRecord, currentTime).build();
     }
 }
