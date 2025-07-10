@@ -1,4 +1,4 @@
-package com.example.application;
+package com.example.application.conversation;
 
 
 import com.example.application.conversation.service.DataLoaderService;
@@ -18,19 +18,19 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 @SpringBootApplication
 @Theme(value = "labs")
-public class ToolsCallingSolutionApplication implements AppShellConfigurator, CommandLineRunner {
+public class McpApplication implements AppShellConfigurator, CommandLineRunner {
 
   private final DataLoaderService dataLoaderService;
 
-  Logger logger = LoggerFactory.getLogger(ToolsCallingSolutionApplication.class);
+  Logger logger = LoggerFactory.getLogger(McpApplication.class);
 
 
-  public ToolsCallingSolutionApplication(DataLoaderService dataLoaderService) {
+  public McpApplication(DataLoaderService dataLoaderService) {
     this.dataLoaderService = dataLoaderService;
   }
 
   public static void main(String[] args) {
-    SpringApplication.run(ToolsCallingSolutionApplication.class, args);
+    SpringApplication.run(McpApplication.class, args);
   }
 
   @Override
