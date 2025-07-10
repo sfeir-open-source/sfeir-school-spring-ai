@@ -5,8 +5,8 @@
   <modelVersion>4.0.0</modelVersion>
   <!-- Project from https://start.vaadin.com/project/c5a257b3-e581-4a74-b913-32a6fa63a81b -->
   <groupId>com.sfeir.codelabs</groupId>
-  <artifactId>springai-step6-solution</artifactId>
-  <name>step-6-solution</name>
+  <artifactId>springai-step6</artifactId>
+  <name>step-6</name>
   <version>1.0-SNAPSHOT</version>
   <packaging>jar</packaging>
 
@@ -54,13 +54,10 @@
       <artifactId>line-awesome</artifactId>
       <version>2.1.0</version>
     </dependency>
+
     <dependency>
       <groupId>org.springframework.ai</groupId>
-      <artifactId>spring-ai-starter-model-openai</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework.ai</groupId>
-      <artifactId>spring-ai-starter-mcp-client</artifactId>
+      <artifactId>spring-ai-starter-model-ollama</artifactId>
     </dependency>
 
     <!-- Vector Databases -->
@@ -104,17 +101,6 @@
   </dependencies>
 
   <repositories>
-    <repository>
-      <name>Central Portal Snapshots</name>
-      <id>central-portal-snapshots</id>
-      <url>https://central.sonatype.com/repository/maven-snapshots/</url>
-      <releases>
-        <enabled>false</enabled>
-      </releases>
-      <snapshots>
-        <enabled>true</enabled>
-      </snapshots>
-    </repository>
     <repository>
       <id>spring-milestones</id>
       <name>Spring Milestones</name>

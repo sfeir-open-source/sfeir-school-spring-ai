@@ -14,9 +14,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 @SpringBootApplication
 @Theme(value = "labs")
-public class PromptTemplatingApplication implements AppShellConfigurator {
+public class PromptTemplatingSolutionApplication implements AppShellConfigurator {
 
     public static void main(String[] args) {
-        SpringApplication.run(PromptTemplatingApplication.class, args);
+        SpringApplication.run(PromptTemplatingSolutionApplication.class, args);
     }
 }
