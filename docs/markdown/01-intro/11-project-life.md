@@ -4,11 +4,11 @@
 
 [repo github](https://github.com/spring-projects/spring-ai)
 
-Octobre 2024
+Septembre 2025
 
-* version 1.0.0-M3
+* version 1.1.0
 
-* Deux d'existence
+* Deux ans d'existence
 
 * 190 contributeurs
 
