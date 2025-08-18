@@ -59,7 +59,11 @@
       <groupId>org.springframework.ai</groupId>
       <artifactId>spring-ai-starter-model-ollama</artifactId>
     </dependency>
-
+    <!-- USE VERTEX AI -->
+    <!--    <dependency>-->
+    <!--      <groupId>org.springframework.ai</groupId>-->
+    <!--      <artifactId>spring-ai-starter-model-vertex-ai-gemini</artifactId>-->
+    <!--    </dependency>-->
     <!-- Vector Databases -->
     <dependency>
       <groupId>org.springframework.ai</groupId>
