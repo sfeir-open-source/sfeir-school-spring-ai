@@ -45,8 +45,8 @@ public class ConverseWithAixolotl implements ConverseWithAssistant {
       .system(buildSystemPrompt())
       .user(prompt)
       .advisors(
-        new MessageChatMemoryAdvisor(aixolotlMemory, conversationId.toString(), 50),
-        new QuestionAnswerAdvisor(this.vectorStore, searchRequest), // RAG
+        MessageChatMemoryAdvisor.builder(aixolotlMemory).conversationId(conversationId.toString()).build(),
+        QuestionAnswerAdvisor.builder(vectorStore).searchRequest(searchRequest).build(), // RAG
         new SafeGuardAdvisor(sensitiveWords)
       )
       .stream()
