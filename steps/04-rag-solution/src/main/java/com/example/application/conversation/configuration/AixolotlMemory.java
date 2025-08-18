@@ -1,5 +1,6 @@
 package com.example.application.conversation.configuration;
 
+import lombok.Data;
 import org.springframework.ai.chat.memory.ChatMemory;
 import org.springframework.ai.chat.messages.Message;
 import org.springframework.stereotype.Component;
@@ -10,9 +11,12 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 @Component
+@Data
 public class AixolotlMemory implements ChatMemory {
 
   private static final Map<String, List<Message>> inMemoryMessages = new ConcurrentHashMap<>();
+
+  private int lastN = 50;
 
   @Override
   public void add(String conversationId, List<Message> messages) {
@@ -20,7 +24,7 @@ public class AixolotlMemory implements ChatMemory {
   }
 
   @Override
-  public List<Message> get(String conversationId, int lastN) {
+  public List<Message> get(String conversationId) {
     List<Message> messages = inMemoryMessages.getOrDefault(conversationId, new ArrayList<>());
     return  messages
       .stream()
@@ -32,4 +36,5 @@ public class AixolotlMemory implements ChatMemory {
   public void clear(String conversationId) {
     inMemoryMessages.clear();
   }
+
 }

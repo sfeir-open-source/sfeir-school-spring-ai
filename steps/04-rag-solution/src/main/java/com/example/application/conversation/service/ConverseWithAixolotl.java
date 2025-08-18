@@ -3,8 +3,8 @@ package com.example.application.conversation.service;
 import com.example.application.conversation.ConverseWithAssistant;
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.ai.chat.client.advisor.MessageChatMemoryAdvisor;
-import org.springframework.ai.chat.client.advisor.QuestionAnswerAdvisor;
 import org.springframework.ai.chat.client.advisor.SafeGuardAdvisor;
+import org.springframework.ai.chat.client.advisor.vectorstore.QuestionAnswerAdvisor;
 import org.springframework.ai.chat.memory.ChatMemory;
 import org.springframework.ai.chat.model.ChatModel;
 import org.springframework.ai.chat.prompt.SystemPromptTemplate;
@@ -45,8 +45,8 @@ public class ConverseWithAixolotl implements ConverseWithAssistant {
       .system(buildSystemPrompt())
       .user(prompt)
       .advisors(
-        new MessageChatMemoryAdvisor(aixolotlMemory, conversationId.toString(), 50),
-        new QuestionAnswerAdvisor(this.vectorStore, searchRequest), // RAG
+        MessageChatMemoryAdvisor.builder(aixolotlMemory).conversationId(conversationId.toString()).build(),
+        QuestionAnswerAdvisor.builder(vectorStore).searchRequest(searchRequest).build(), // RAG
         new SafeGuardAdvisor(sensitiveWords)
       )
       .stream()
