@@ -1,7 +1,5 @@
 package com.example.application;
 
-import com.vaadin.flow.component.page.AppShellConfigurator;
-import com.vaadin.flow.theme.Theme;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -13,8 +11,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  *
  */
 @SpringBootApplication
-@Theme(value = "labs")
-public class PromptTemplatingSolutionApplication implements AppShellConfigurator {
+public class PromptTemplatingSolutionApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(PromptTemplatingSolutionApplication.class, args);
