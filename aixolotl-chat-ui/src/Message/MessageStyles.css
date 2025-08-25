@@ -1,0 +1,22 @@
+.message-container {
+	display: flex;
+	gap: 0.5rem;
+	width: 100%;
+	align-items: flex-end;
+}
+
+.message {
+	margin: 0;
+	white-space: pre-wrap;
+	padding: 1rem;
+	font-size: 0.75rem;
+	border-radius: 1rem;
+	width: 56%;
+	color: #efefef;
+}
+
+.aixo-head {
+	width: 54px;
+	height: 54px;
+	border-radius: 50%;
+}

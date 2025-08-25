@@ -6,6 +6,7 @@ import {
 	useConversationStore,
 	type MessageType,
 } from "./useConversationStore";
+import './ChatStyles.css'
 
 let stopAixolotlSignal = new AbortController();
 
@@ -37,14 +38,7 @@ function Chat() {
 	return (
 		<>
 			<div
-				style={{
-					display: "flex",
-					gap: "0.85rem",
-					flexDirection: "column",
-					overflow: "auto",
-					height: "89vh",
-					padding: "0.5rem 0.5rem 110px 0.5rem",
-				}}
+				className="chat-container"
 			>
 				{messages.map((message) => (
 					<Message

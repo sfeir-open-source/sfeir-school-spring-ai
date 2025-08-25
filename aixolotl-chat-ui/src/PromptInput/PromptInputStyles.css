@@ -1,0 +1,28 @@
+.prompt-input-container {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    bottom: 0;
+    width: 100%;
+    padding: 1.25rem;
+    box-sizing: border-box;
+    background: linear-gradient(45deg, rgb(192 171 196 / 11%), rgb(37 124 136 / 17%), rgb(255 108 198 / 14%));
+    backdrop-filter: blur(10px);
+}
+
+.input {
+    all: unset;
+    border-radius: 1.85rem;
+    width: 80%;
+    height: 3rem;
+    box-sizing: border-box;
+    padding: 1.75rem;
+    backdrop-filter: blur(10px);
+    background-color: #6868681c;
+}
+
+.stop-button {
+    all: unset;
+    cursor: pointer';
+}

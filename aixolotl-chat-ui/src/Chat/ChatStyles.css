@@ -1,0 +1,8 @@
+.chat-container {
+	display: flex;
+	gap: 0.85rem;
+	flex-direction: column;
+	overflow: auto;
+	height: 89vh;
+	padding: 0.5rem 0.5rem 110px 0.5rem;
+}
