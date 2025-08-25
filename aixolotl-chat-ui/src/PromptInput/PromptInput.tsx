@@ -1,22 +1,16 @@
 import * as React from 'react';
-import {
-    ConversationAction,
-    MessageType,
-} from '../Chat/useConversationReducer';
+import type { ConversationAction, MessageType } from '../Chat/useConversationStore';
 
 interface PromptInputProps {
-    dispatchFunction: React.Dispatch<{
+    dispatchFunction?: React.Dispatch<{
         type: ConversationAction;
         payload: unknown;
     }>;
-    onStop?: Function;
+    onStop?: () => void;
+    ref?: React.Ref<HTMLInputElement>
 }
 
-const PromptInput: React.ForwardRefRenderFunction<
-    HTMLInputElement,
-    PromptInputProps
-> = ({ dispatchFunction, onStop }, ref) => {
-    const userPromptInputRef = React.useRef<HTMLInputElement>(null);
+const PromptInput: React.FC<PromptInputProps> = ({ onStop, ref }) => {
 
     return (
         <div
@@ -35,7 +29,7 @@ const PromptInput: React.ForwardRefRenderFunction<
             }}
         >
             <input
-                ref={userPromptInputRef}
+                ref={ref}
                 type="text"
                 placeholder="How can I help you ? Ask what you want !"
                 style={{
@@ -49,28 +43,6 @@ const PromptInput: React.ForwardRefRenderFunction<
                     backgroundColor: '#6868681c',
                 }}
             ></input>
-            <button
-                type="submit"
-                style={{
-                    all: 'unset',
-                    cursor: 'pointer',
-                }}
-                onClick={() => {
-                    dispatchFunction({
-                        type: 'addPromptMessage',
-                        payload: {
-                            from: 'User',
-                            text: userPromptInputRef.current?.value || '',
-                            timestamp: Date.now(),
-                        } as MessageType,
-                    });
-                    if (userPromptInputRef.current) {
-                        userPromptInputRef.current.value = '';
-                    }
-                }}
-            >
-                ►
-            </button>
             <button
                 style={{
                     all: 'unset',

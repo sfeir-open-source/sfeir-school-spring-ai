@@ -1,3 +1,4 @@
+/* eslint-disable no-case-declarations */
 import { useReducer, useState } from 'react';
 
 export type ConversationAction = 'addPromptMessage' | 'streamAixolotlMessage';
