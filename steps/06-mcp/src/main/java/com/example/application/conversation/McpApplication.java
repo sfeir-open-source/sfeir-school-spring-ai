@@ -2,8 +2,6 @@ package com.example.application.conversation;
 
 
 import com.example.application.conversation.service.DataLoaderService;
-import com.vaadin.flow.component.page.AppShellConfigurator;
-import com.vaadin.flow.theme.Theme;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
@@ -17,8 +15,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * and some desktop browsers.
  */
 @SpringBootApplication
-@Theme(value = "labs")
-public class McpApplication implements AppShellConfigurator, CommandLineRunner {
+public class McpApplication implements CommandLineRunner {
 
   private final DataLoaderService dataLoaderService;
 
