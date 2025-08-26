@@ -15,4 +15,4 @@ services:
       - POSTGRES_HOST_AUTH_METHOD=trust
     volumes:
       - ./postgres:/var/lib/postgresql
-      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./postgres/init.sql:/docker-entrypoint-initdb.d/init.sql

@@ -1,8 +1,6 @@
 package com.example.application;
 
 import com.example.application.conversation.service.DataLoaderService;
-import com.vaadin.flow.component.page.AppShellConfigurator;
-import com.vaadin.flow.theme.Theme;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -14,8 +12,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * and some desktop browsers.
  */
 @SpringBootApplication
-@Theme(value = "labs")
-public class ToolsCallingApplication implements AppShellConfigurator, CommandLineRunner {
+public class ToolsCallingApplication implements CommandLineRunner {
 
   private final DataLoaderService dataLoaderService;
 
