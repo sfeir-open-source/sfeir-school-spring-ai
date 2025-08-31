@@ -6,6 +6,14 @@
 
 # Définition
 
+
+
+Une idée ?
+
+##==##
+
+# Définition
+
 ## CNIL
 
 <cite>
@@ -14,7 +22,7 @@ sur un algorithme et en mesure de réaliser des tâches bien définies. Pour le 
 constitue une intelligence artificielle tout outil utilisé par une machine afin de 
 « reproduire des comportements liés aux humains, tels que le raisonnement, la planification et la créativité ». 
 Plus précisément, la Commission européenne considère que l’IA regroupe :
-<br><br>
+
 
 * les approches d’apprentissage automatique ;
 * les approches fondées sur la logique et les connaissances ; et
