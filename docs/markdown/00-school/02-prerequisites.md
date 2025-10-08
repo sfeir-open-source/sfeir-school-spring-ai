@@ -1,14 +1,16 @@
-<!-- .slide:-->
+
 # Un tour de table
-![center](./assets/images/diversemeeting.svg)
+![](./assets/images/diversemeeting.svg 'center')
+
 
 ##==##
 
-<!-- .slide: -->
+
+
 
 # Avant toute chose
 
-![h-800 float-left](assets/images/checks.jpg)
+![](assets/images/checks.jpg 'h-800 float-left')
 
 **Pré-requis**
 

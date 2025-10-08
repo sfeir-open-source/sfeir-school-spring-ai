@@ -1,4 +1,4 @@
-<!-- .slide: -->
+
 
 # Retrieval Augmented Generation (RAG)
 
@@ -16,7 +16,9 @@ L'architecture RAG est la combinaison d'un modèle d'embedding, d'une base de do
 </div>
 
 
+
 ##==##
+
 
 # Retrieval Augmented Generation (RAG)
 
@@ -27,7 +29,9 @@ L'architecture RAG est la combinaison d'un modèle d'embedding, d'une base de do
   <img src="../../assets/images/flow_rag.png" width="70%" alt="transformers">
 </div>
 
+
 ##==##
+
 
 # Retrieval Augmented Generation (RAG)
 
@@ -55,7 +59,9 @@ Pour cela, on s'appuie sur l'implémentation ```TokenTextSplitter``` de l'interf
     vectorStore.write(splitDocuments); // Document Writer
 ```
 
+
 ##==##
+
 # Retrieval Augmented Generation (RAG)
 
 ## Implémentation spring AI

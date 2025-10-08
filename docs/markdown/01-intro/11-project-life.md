@@ -1,4 +1,4 @@
-<!-- .slide: -->
+
 
 # Vie du projet
 

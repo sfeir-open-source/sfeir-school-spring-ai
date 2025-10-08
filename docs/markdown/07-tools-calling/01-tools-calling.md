@@ -1,4 +1,4 @@
-<!-- .slide: -->
+
 
 # Tools calling
 
@@ -10,7 +10,9 @@ Spring AI propose des API simples d'utilisation pour définir des outils et gér
 émises par un modèle et en assurer l'exécution. 
 
 
+
 ##==##
+
 
 # Tools calling
 ## Définir un outil
@@ -34,7 +36,9 @@ class DateTimeTools {
 }
 ```
 
+
 ##==##
+
 
 # Tools calling
 ## Spécifier des paramètres d'entrée
@@ -50,7 +54,9 @@ class DateTimeTools {
 }
 ```
 
+
 ##==##
+
 
 # Tools calling
 ## Spécifier des paramètres d'entrée
@@ -82,7 +88,9 @@ System.out.println(response);
 ```
 
 
+
 ##==##
+
 
 # Tools calling
 ## Spécifier le format de sortie
@@ -99,7 +107,9 @@ class CustomerTools {
 ```
 
 
+
 ##==##
+
 
 # Tools calling
 ## Appeler un outil

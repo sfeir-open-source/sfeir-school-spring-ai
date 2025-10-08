@@ -1,4 +1,4 @@
-<!-- .slide: -->
+
 
 <section>
   <h1>Les transformers</h1>
@@ -17,7 +17,9 @@
 </section>
 
 
+
 ##==##
+
 # LLM
 
 ## Modèle d'embedding
@@ -34,7 +36,9 @@ des questions précises où la compréhension fine du contexte est cruciale.
 
 Exemple : les modèles basés sur l'architecture BERT 
 
+
 ##==##
+
 
 # LLM
 ## Modèle dit génératif
@@ -50,7 +54,9 @@ l'écriture de code et toute tâche nécessitant de produire de nouvelles séque
 
 Exemple : GPT
 
+
 ##==##
+
 
 <section>
 <h1>Agent IA</h1>

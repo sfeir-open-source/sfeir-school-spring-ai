@@ -1,4 +1,4 @@
-<!-- .slide: -->
+
 
 # Initialisation de l'application
 
@@ -8,7 +8,9 @@ Allez sur le site : https://start.spring.io/
   <img src="../../assets/images/spring_initializr.png" width="60%" height="40%" alt="initializr">
 </div>
 
+
 ##==##
+
 
 # Configuration du projet MAVEN
 
@@ -43,7 +45,9 @@ Allez sur le site : https://start.spring.io/
 </repositories>
 ```
 
+
 ##==##
+
 
 # Starter spring boot pour IA
 
@@ -72,7 +76,9 @@ Des starter disponibles pour les principaux fournisseurs de model LLM ...
   <artifactId>spring-ai-advisors-vector-store</artifactId>
 </dependency>
 ```
+
 ##==##
+
 
 # Chat Model API
 

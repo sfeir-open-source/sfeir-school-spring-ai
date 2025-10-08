@@ -1,4 +1,4 @@
-<!-- .slide: -->
+
 
 # Prompt
 
@@ -15,7 +15,9 @@ La structure d'un prompt se compose de plusieurs éléments :
 
 L'art de concevoir des prompts efficaces est appelé "prompt engineering"
 
+
 ##==##
+
 
 # Tokenisation
 
@@ -28,7 +30,9 @@ La tokenisation est la traduction du langage humain en un format numérique comp
 
 :information_source: Les modèles ont des limites maximum de token admissibles par prompt
 
+
 ##==##
+
 # Paramétrage
 
 ## Température
@@ -37,7 +41,9 @@ La température est un paramètre qui contrôle le degré de hasard et de créat
 * Température basse (proche de 0) -> modèle plus déterministe et prévisible.
 * Température élevée (supérieur à 1) -> modèle prend plus de risques et peut choisir les mots moins probables.
 
+
 ##==##
+
 
 # Paramétrage
 
@@ -47,7 +53,9 @@ Méthode de filtrage qui force un modèle de langage à choisir le prochain mot 
 * Un K faible (ex=5) choisira le mot parmi les 5 mots les plus probable préalablement sélectionné. Cela peut rendre le modèle plus prévisible et sûr mais moins créatif.
 * Un K élevé (ex=50) donnera plus de liberté au modèle
 
+
 ##==##
+
 
 # Paramétrage
 
@@ -56,7 +64,9 @@ Méthode de filtrage qui force un modèle de langage à choisir le prochain mot 
 Méthode de filtrage qui sélectionne le prochain mot à partir d'un groupe de candidat dont la probabilité cumulée atteint un seuil P
 Ce filtre permet d'adapter le nombre de choix possibles à la situation, donc de trouver un meilleur équilibre entre cohérence et créativité
 
+
 ##==##
+
 
 # Entraînement et apprentissage
 

@@ -1,12 +1,14 @@
-<!-- .slide: class="transition bg-pink" -->
+<!-- .slide: class="transition" -->
 
 # Spring AI
 
+
 ##==##
+
 
 # Pourquoi ? Dans quel objectif ?
 
-![center h-80](./assets/images/spring-ai-integration-diagram-3.svg)
+![](./assets/images/spring-ai-integration-diagram-3.svg 'center h-80')
 <br>
 * Appliquer l'écosystème SPRING au domaine des IA génératives
   * Apporte le soutien de la communauté SPRING

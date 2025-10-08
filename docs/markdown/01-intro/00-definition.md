@@ -1,8 +1,10 @@
-<!-- .slide: class="transition bg-pink" -->
+<!-- .slide: class="transition" -->
 
 # Intelligence artificielle
 
+
 ##==##
+
 
 # Définition
 
@@ -10,7 +12,9 @@
 
 Une idée ?
 
+
 ##==##
+
 
 # Définition
 

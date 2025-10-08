@@ -1,4 +1,4 @@
-<!-- .slide: -->
+
 
 # Structurer son prompt
 
@@ -26,7 +26,9 @@ Le composant clé de ce système est la classe ```PromptTemplate```
   }
 ```
 
+
 ##==##
+
 
 # Structurer son prompt
 
@@ -43,7 +45,9 @@ avec différentes implémentations pour modéliser les messages. On distingue 4 
 | TOOL      | Utiliser pour fournir au modèle le résultat de l'exécution d'une fonction ou d'un outil externe                                                                      |
 
 
+
 ##==##
+
 
 # Structurer son prompt
 

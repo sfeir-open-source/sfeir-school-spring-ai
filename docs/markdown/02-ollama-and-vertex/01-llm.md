@@ -1,4 +1,4 @@
-<!-- .slide: -->
+
 
 # Les modèles utilisés
 
@@ -15,16 +15,20 @@ Utilisation des plusieurs modèles :
   <img src="../../assets/images/og.png" width="30%" height="20%" alt="initializr">
 </div>
 
+
 ##==##
+
 
 # Les modèles utilisés
 
 ## Vertex AI
 Plate-forme de machine learning (ML) permettant de déployer et personnaliser des modèles de langage volumineux
 
-![center h-80](./assets/images/Vertex-AI.jpg)
+![](./assets/images/Vertex-AI.jpg 'center h-80')
+
 
 ##==##
+
 
 # Base de données vectorielles
 

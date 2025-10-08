@@ -1,4 +1,4 @@
-<!-- .slide: -->
+
 
 # ChatClient API
 
@@ -20,7 +20,9 @@ Principales fonctionnalités :
     }
 ```
 
+
 ##==##
+
 
 # ChatClient API
 

@@ -1,4 +1,4 @@
-<!-- .slide: -->
+
 
 # Protocole MCP
 

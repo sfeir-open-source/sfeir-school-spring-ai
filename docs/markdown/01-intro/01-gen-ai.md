@@ -1,8 +1,10 @@
-<!-- .slide: class="transition bg-pink" -->
+<!-- .slide: class="transition" -->
 
 # Intelligence artificielle générative
 
+
 ##==##
+
 
 # Définition
 
@@ -17,7 +19,9 @@ Ces systèmes utilisent des modèles avancés d'apprentissage automatique pour g
 </cite>
 
 
+
 ##==##
+
 
 # GPT (Generative Pre-trained transformer)
 

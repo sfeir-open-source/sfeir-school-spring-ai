@@ -1,35 +1,39 @@
 <!-- .slide: class="speaker-slide" -->
 
+<div class="speaker-slide">
+
 # Présentation
 
-![speaker](./assets/images/jmo.jpeg)
-![company](./assets/images/logo-sfeir-blanc.png)
+![](./assets/images/jmo.jpeg 'speaker')
+
+![](./assets/images/logo-sfeir-blanc.png 'company')
 
 ## Jonathan Molza
 
 ### @jonathan_molza
 
-<!-- .element: class="icon-linkedin icon-second" -->
-
 ### molza.j@sfeir.com
 
-<!-- .element: class="icon-mail icon-third" -->
+</div>
+
 
 ##==##
+
 <!-- .slide: class="speaker-slide" -->
+
+<div class="speaker-slide">
 
 # Présentation
 
-![speaker](./assets/images/sjo.jpg)
-![company](./assets/images/logo-sfeir-blanc.png)
+![](./assets/images/sjo.jpg 'speaker')
+
+![](./assets/images/logo-sfeir-blanc.png 'company')
 
 ## Sylvain JOSSE
 
 ### @sylvain_josse
 
-<!-- .element: class="icon-linkedin icon-second" -->
-
 ### josse.s@sfeir.com
 
-<!-- .element: class="icon-mail icon-third" -->
+</div>
 
