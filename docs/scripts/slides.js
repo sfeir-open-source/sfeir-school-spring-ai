@@ -80,8 +80,9 @@ function mcpSlides() {
   return [
     //
     `${directory}00-TITLE.md`,
-    `${directory}01-mcp.md`,
-    `${directory}02-lab-mcp.md`
+    `${directory}01-what-is-mcp.md`,
+    `${directory}02-lab-mcp.md`,
+    `${directory}03-mcp-more.md`
   ]
 }
 
