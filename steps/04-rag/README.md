@@ -81,3 +81,6 @@ la rendre plus précise et efficace. Pour cela, il vous suffit de la construire 
 notre cas on recherchera des documents uniquements dans la catégorie `adminRh`
 - méthode avancée : les techniques de RAG évoluent rapidement et les flows se complexifient. Afin de s'adpater
 facilement au besoin, une architecture modulaire a vu le jour https://docs.spring.io/spring-ai/reference/api/retrieval-augmented-generation.html#modules
+
+### RAG modulaire
+
