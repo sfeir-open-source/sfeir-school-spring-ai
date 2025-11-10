@@ -7,6 +7,7 @@ import org.springframework.ai.rag.generation.augmentation.ContextualQueryAugment
 import org.springframework.ai.rag.generation.augmentation.QueryAugmenter;
 import org.springframework.ai.rag.preretrieval.query.expansion.MultiQueryExpander;
 import org.springframework.ai.rag.preretrieval.query.expansion.QueryExpander;
+import org.springframework.ai.rag.preretrieval.query.transformation.RewriteQueryTransformer;
 import org.springframework.ai.rag.retrieval.search.DocumentRetriever;
 import org.springframework.ai.rag.retrieval.search.VectorStoreDocumentRetriever;
 import org.springframework.ai.vectorstore.VectorStore;
@@ -22,8 +23,11 @@ public class ModularRagService {
   public RetrievalAugmentationAdvisor retrievalAugmentationAdvisor(ChatClient.Builder chatClientBuilder) {
     return RetrievalAugmentationAdvisor.builder()
                                        .queryAugmenter(queryAugmenter())
-                                       .queryTransformers()
-                                       .queryExpander(queryExpander(chatClientBuilder))
+                                       .queryTransformers(RewriteQueryTransformer.builder()
+                                                            .chatClientBuilder(chatClientBuilder.clone())
+                                                            .targetSearchSystem("vectore stores")
+                                                            .build())
+                                       .queryExpander(queryExpander(chatClientBuilder.clone()))
                                        .documentRetriever(documentRetriever())
                                        .build();
   }

@@ -3,7 +3,10 @@ package com.example.application.conversation.service;
 import com.example.application.conversation.persistence.RagDocument;
 import com.example.application.conversation.persistence.RagDocumentRepository;
 import org.springframework.ai.document.Document;
+import org.springframework.ai.document.DocumentReader;
+import org.springframework.ai.reader.JsonReader;
 import org.springframework.ai.reader.TextReader;
+import org.springframework.ai.reader.pdf.PagePdfDocumentReader;
 import org.springframework.ai.transformer.splitter.TextSplitter;
 import org.springframework.ai.transformer.splitter.TokenTextSplitter;
 import org.springframework.ai.vectorstore.VectorStore;
@@ -40,7 +43,8 @@ public class DataLoaderService {
     getDocuments().forEach(doc -> {
       if(ragDocumentRepository.findByTitle(doc.getFilename()) == null) {
 
-        List<Document> documents = new TextReader(doc).get();
+        DocumentReader reader = getReaderForResource(doc);
+        List<Document> documents = reader.get();
         List<Document> splitDocuments = textSplitter.apply(documents);
         splitDocuments.forEach(splitDocument -> splitDocument.getMetadata().put("category", "adminrh"));
         vectorStore.write(splitDocuments);
@@ -50,6 +54,25 @@ public class DataLoaderService {
       }
     });
 
+  }
+
+  private DocumentReader getReaderForResource(Resource resource) {
+    String filename = resource.getFilename();
+    if (filename == null) {
+      throw new IllegalArgumentException("The resource has no filename");
+    }
+
+    if (filename.toLowerCase().endsWith(".pdf")) {
+      return new PagePdfDocumentReader(resource);
+    } else if (filename.toLowerCase().endsWith(".txt")) {
+      return new TextReader(resource);
+    } else if (filename.toLowerCase().endsWith(".json")){
+      return new JsonReader(resource);
+    }
+    // Ajouter l'extension que vous voulez
+    else {
+      throw new UnsupportedOperationException("Unsupported file type: " + filename);
+    }
   }
 
   private List<Resource> getDocuments(){

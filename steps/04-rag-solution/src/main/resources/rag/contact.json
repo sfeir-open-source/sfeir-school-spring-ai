@@ -1,0 +1,37 @@
+[
+  {
+    "givenName": "Jean",
+    "familyName": "Dupont",
+    "email1Value": "jean.dupont@entreprise.com",
+    "phone1Value": "+33612345678",
+    "groupMembership": "Collègues"
+  },
+  {
+    "givenName": "Marie",
+    "familyName": "Martin",
+    "email1Value": "marie.m@gmail.com",
+    "phone1Value": "+33198765432",
+    "groupMembership": "Amis"
+  },
+  {
+    "givenName": "Luc",
+    "familyName": "Leclerc",
+    "email1Value": "luc@domaine.net",
+    "phone1Value": "",
+    "groupMembership": "Clients"
+  },
+  {
+    "givenName": "Support",
+    "familyName": "Technique",
+    "email1Value": "support@exemple.com",
+    "phone1Value": "",
+    "groupMembership": "Fournisseurs"
+  },
+  {
+    "givenName": "Alice",
+    "familyName": "Duval",
+    "email1Value": "alice.perso@email.org",
+    "phone1Value": "+33700112233",
+    "groupMembership": "Famille"
+  }
+]
