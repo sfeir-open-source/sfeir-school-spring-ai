@@ -34,11 +34,7 @@ public class DataLoaderService {
 
   public void load() {
 
-    TextSplitter textSplitter = new TokenTextSplitter(20,
-      5,
-      5,
-      500,
-      true);
+    TextSplitter textSplitter = new TokenTextSplitter();
 
     getDocuments().forEach(doc -> {
       if(ragDocumentRepository.findByTitle(doc.getFilename()) == null) {
