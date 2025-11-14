@@ -6,7 +6,7 @@
 
 <div class="comparison-card-wrapper">
   <div class="comparison-card mcp">
-    <h5 class="comparison-card-title"><i data-feather="alert-circle"></i> Hallucinations</h5>
+    <h5 class="comparison-card-title"><i data-feather="alert-circle"></i>Déconnecté</h5>
   </div>
   <div class="comparison-card mcp">
     <h5 class="comparison-card-title"><i data-feather="database"></i> Limité aux données d'entrainement</h5>

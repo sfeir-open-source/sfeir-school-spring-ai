@@ -11,7 +11,7 @@
 #### Objectif
 
 <small>
-<p>Donner à AIxolotl la capacité d'appeler des outils externes pour effectuer des tâches essentielles d'onboarding (s'enregistrer à la mailing list, envoyer un mail de demande de droits, poster un message de bienvenue).</p>
+<p>Donner à AIxolotl la capacité d'appeler des outils externes pour effectuer des tâches essentielles d'onboarding (envoyer un mail de demande de droits à notre administrateur).</p>
 <br/>
 </small>
 

@@ -32,16 +32,15 @@ Credentials
 
 ##==##
 
+<!-- .slide: class="mask transition-bg-green-5 tc-multiple-columns" -->
 
 # Déroulement de la formation
 
-<p class="center">
-C'est quand la pause ?<br>
-Quand est-ce qu'on mange ?<br>
-Tour de table ...
-</p>
-<br><br>
+<ul class="center" style="color: white; font-weight: bold">
+    <li>C'est quand la pause ?</li>
+    <li>Quand est-ce qu'on mange ?</li>
+    <li>Tour de table ...</li>
+    <li>Feuille de présence à remplir</li>
+</ul>
 
-**Feuille de présence (obligatoire)** <!-- .element: class="center" -->
-
-https://bit.ly/sfeir-xxx <!-- .element: class="center" -->
+<!-- .element: class="center" -->

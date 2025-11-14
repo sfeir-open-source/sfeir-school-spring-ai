@@ -16,6 +16,7 @@
         <li>Docker</li>
         <li>Ollama avec llama3.2 et mistral-small</li>
         <li>Postman</li>
+        <li>Cloner le repo de la school</li>
     </ul>
 </div>
 <!-- .element: class="center" -->
