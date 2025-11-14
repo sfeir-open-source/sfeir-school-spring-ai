@@ -1,5 +1,3 @@
-
-
 # Tools calling
 
 ## 3 problèmes

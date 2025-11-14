@@ -1,10 +1,14 @@
-
+<!-- .slide: class="transition-bg-blue-3 tc-multiple-columns" -->
 
 # Déroulement
 
-1. L'intelligence artificielle en 2025
-2. Survol des concepts au coeur des LLM
-3. Outillages
-4. Framework SPRING AI
-5. Labs
-6. Conclusion
+<ul style="color: white;">
+    <li>L'intelligence artificielle en 2025</li>
+    <li>Survol des concepts au coeur des LLM</li>
+    <li>Outillages</li>
+    <li>Framework SPRING AI</li>
+    <li>Labs</li>
+    <li>Conclusion</li>
+</ul>
+
+<!-- .element: class="center" -->
