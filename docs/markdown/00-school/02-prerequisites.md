@@ -1,28 +1,22 @@
 
-# Un tour de table
-![](./assets/images/diversemeeting.svg 'center')
+<!-- .slide: class="transition-bg-green-4" -->
+# Tour de table
 
+# SFEIR bg green 4
 
 ##==##
 
+<!-- .slide: class="transition-bg-blue-1 tc-multiple-columns" -->
 
+# Pré-requis
 
-
-# Avant toute chose
-
-![](assets/images/checks.jpg 'h-800 float-left')
-
-**Pré-requis**
-
-* IDE prêt pour environnement JAVA 17 ou supérieur
-
-* Docker engine
-
-* [Ollama](https://ollama.com/) avec llama3.2 et mistral-small
-
-* Postman
-
-**GitHub de la formation**
-
-
-[https://github.com/sfeir-open-source/sfeir-school-spring-ai](https://github.com/sfeir-open-source/sfeir-school-spring-ai)
+<div>
+    <ul style="color: white">    
+        <li>IDE prêt pour environnement Java 21</li>
+        <li>Docker</li>
+        <li>Ollama avec llama3.2 et mistral-small</li>
+        <li>Postman</li>
+        <li>Cloner le repo de la school</li>
+    </ul>
+</div>
+<!-- .element: class="center" -->

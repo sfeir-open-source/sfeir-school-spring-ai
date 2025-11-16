@@ -1,15 +1,31 @@
-
-
 # Tools calling
+
+## 3 problèmes
+
+<br>
+
+<div class="comparison-card-wrapper">
+  <div class="comparison-card mcp">
+    <h5 class="comparison-card-title"><i data-feather="alert-circle"></i>Déconnecté</h5>
+  </div>
+  <div class="comparison-card mcp">
+    <h5 class="comparison-card-title"><i data-feather="database"></i> Limité aux données d'entrainement</h5>
+  </div>
+  <div class="comparison-card mcp">
+    <h5 class="comparison-card-title"><i data-feather="cpu"></i> Calcul</h5>
+  </div>
+</div> 
+
+<br>
 
 Malgré leur grande connaissance les modèles de langages sont limités dans l'accès à l'information temps réel et 
 aux intéractions avec des systèmes externes (agenda, boîte mail, ...). Les tools calling sont un moyen pour les LLMs 
 de se connecter au monde extérieur
 
+<br>
+
 Spring AI propose des API simples d'utilisation pour définir des outils et gérer les demandes d'appel d'outils 
-émises par un modèle et en assurer l'exécution. 
-
-
+émises par un modèle et en assurer l'exécution. <!-- .element: class="admonition tip" -->
 
 ##==##
 
@@ -105,8 +121,6 @@ class CustomerTools {
 
 }
 ```
-
-
 
 ##==##
 

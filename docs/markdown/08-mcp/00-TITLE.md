@@ -1,3 +1,3 @@
 <!-- .slide: class="transition" -->
 
-# Protocole MCP
+# Protocole MCP (Model Context Protocol)

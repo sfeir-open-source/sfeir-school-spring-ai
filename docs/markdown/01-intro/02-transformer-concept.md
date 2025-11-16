@@ -1,8 +1,13 @@
+<!-- .slide: class="quote-slide" -->
+<blockquote>
+  <cite>
+    Attention is all you need...
+  </cite>
+</blockquote>
 
-
+##==##
 <section>
   <h1>Les transformers</h1>
-  <p><a href="https://proceedings.neurips.cc/paper_files/paper/2017/file/3f5ee243547dee91fbd053c1c4a845aa-Paper.pdf">Attention is all you need</a></p>
   <div class="r-stack">
     <div style="display: flex; align-items: center; justify-content: space-between;">
       <div style="flex: 1; padding-right: 5px;">
