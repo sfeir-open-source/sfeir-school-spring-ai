@@ -2,6 +2,8 @@
 
 # Initialisation de l'application
 
+## Configuration du projet
+
 Allez sur le site : https://start.spring.io/
 <br></br>
 <div class="r-hstack">
@@ -9,42 +11,9 @@ Allez sur le site : https://start.spring.io/
 </div>
 
 
-##==##
 
-
-# Configuration du projet MAVEN
-
-## gestion des dépendances
-
-```xml
-<dependencyManagement>
-  <dependencies>
-    <dependency>
-      <groupId>org.springframework.ai</groupId>
-      <artifactId>spring-ai-bom</artifactId>
-      <version>${spring-ai.version}</version>
-      <type>pom</type>
-      <scope>import</scope>
-    </dependency>
-  </dependencies>
-</dependencyManagement>
-```
-
-## Spécification du repo
-
-```xml
-<repositories>
-  <repository>
-    <id>spring-milestones</id>
-    <name>Spring Milestones</name>
-    <url>https://repo.spring.io/milestone</url>
-    <snapshots>
-      <enabled>false</enabled>
-    </snapshots>
-  </repository>
-</repositories>
-```
-
+*Tous les modules ne sont pas disponible sur spring initializr*
+<!-- .element: class="admonition important" -->
 
 ##==##
 

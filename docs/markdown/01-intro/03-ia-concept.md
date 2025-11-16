@@ -22,14 +22,18 @@ L'art de concevoir des prompts efficaces est appelé "prompt engineering"
 # Tokenisation
 
 Processus consistant à découper un texte en plus petit morceau appelés "tokens". Etape fondamentale 
-pour toute analyse par un LLM. La phrase : 
+pour toute analyse par un LLM. 
 
-"Quel temps fait-il demain ?" serait découpée en ```["Quel", "temps", "fait-il", "demain", "?"]```
 
-La tokenisation est la traduction du langage humain en un format numérique compréhensible par la machine
+"Quel temps fait-il demain ?" découpée en
+```["Quel", "temps", "fait-il", "demain", "?"]```
+<!-- .element: class="admonition example" -->
 
-:information_source: Les modèles ont des limites maximum de token admissibles par prompt
+<br></br>
 
+*La tokenisation est la traduction du langage humain en un format numérique compréhensible par la machine*
+
+![](info 'tc-icons material-symbols material-symbols-sharp') Les modèles ont des limites maximum de token admissibles par prompt
 
 ##==##
 

@@ -2,62 +2,62 @@
 
 # Retrieval Augmented Generation (RAG)
 
-## Qu'est-ce que le processus de RAG
+## Processus de RAG
 
-L'intérêt principal du RAG est de rendre les grands modèles plus fiables, plus précis et plus pertinents en leur donnant accès à une connaissance 
+
+L'architecture RAG est la combinaison d'un modèle d'embedding, d'une base de données vectorielle et d'un LLM.
+<br></br>
+
+![](./assets/images/rag_schema.svg 'w-1000 center')
+
+Notes:
+L'intérêt principal du RAG est de rendre les grands modèles plus fiables, plus précis et plus pertinents en leur donnant accès à une connaissance
 externe et contrôlée. Plutôt que de se baser uniquement sur les données de leur entraînement initial
 
-L'architecture RAG est la combinaison d'un modèle d'embedding, d'une base de données vectorielle et d'un LLM. Son fonctionnement se décompose en deux étapes :
+##==##
+# Retrieval Augmented Generation (RAG)
+
+## Ajout des documents externes en base (Ingestion)
+
 <br></br>
-1. **Ajout des documents externes en base**
-
-<div class="r-stack">
-  <img src="../../assets/images/embedding_model.png" width="70%" alt="transformers">
-</div>
-
-
+![](./assets/images/ingestion_rag.svg 'w-800 center')
+<br></br>
+![](./assets/images/ingestion_pipeline.svg 'w-800 center')
 
 ##==##
 
 
 # Retrieval Augmented Generation (RAG)
 
-## Qu'est-ce que le processus de RAG
+## Génération
 
-2. **Envoi d'une requête au LLM**
-<div class="r-stack">
-  <img src="../../assets/images/flow_rag.png" width="70%" alt="transformers">
-</div>
+<img class="center" src="./assets/images/flow_rag.png" style="width: 80vw">
 
+![](./assets/images/cosinus_similarity.svg 'float-right')
 
 ##==##
-
 
 # Retrieval Augmented Generation (RAG)
 
 ## Implémentation spring AI
 
-1. **Insérer un document en base**
+#### Ingestion
 
-Spring boot propose des starters pour les principales base de données vectorielles du marché. L'exemple suivant tire la dépendance du starter pgvector, une extension de
-PostgreSQL :
-```xml
-    <!-- Vector Databases -->
-    <dependency>
-      <groupId>org.springframework.ai</groupId>
-      <artifactId>spring-ai-starter-vector-store-pgvector</artifactId>
-    </dependency>
-```
+Le framework d'Extraction, Transformation et Chargement (ETL) sert de colonne vertébrale au traitement des données dans le cas d'utilisation de RAG.
 
-Avant d'être inséré en base, le document doit passer par une étape fondamentale, son découpage en morceaux (chunk).
-Pour cela, on s'appuie sur l'implémentation ```TokenTextSplitter``` de l'interface ```DocumentTransformer```.
+Il y a 3 composants principaux dans un ETL :
+
+* `DocumentReader` implémente `Supplier<List<Document>>`
+* `DocumentTransformer` implémente `Function<List<Document>, List<Document>>`
+* `DocumentWriter` that implémente `Consumer<List<Document>>`
 
 ```java
-    TextSplitter textSplitter = new TokenTextSplitter(20,5,5,500,true);
     List<Document> documents = new TextReader(doc).get();  // Document Reader
+    TextSplitter textSplitter = new TokenTextSplitter();
     List<Document> splitDocuments = textSplitter.apply(documents);  // Document Transformer
     vectorStore.write(splitDocuments); // Document Writer
 ```
+<!-- .element: class="admonition example" -->
 
 
 ##==##
@@ -66,18 +66,18 @@ Pour cela, on s'appuie sur l'implémentation ```TokenTextSplitter``` de l'interf
 
 ## Implémentation spring AI
 
-2. **Utilisation des advisors**
+#### Query
 
-La dépendance ci-dessous vous permettra d'utiliser l'advisor ```QuestionAnswerAdivsor``` mise à disposition par Spring pour requêter dans une base de données vectorielles : 
+Spring AI met à disposition un support prêt à l'emploi pour les flux RAG courants en utilisant l'API Advisor. Les deux principaux sont :
 
-```xml
-    <dependency>
-      <groupId>org.springframework.ai</groupId>
-      <artifactId>spring-ai-advisors-vector-store</artifactId>
-    </dependency>
-```
 
-Il suffira de l'ajouter au chatClient de la manière suivante :
+* QuestionAnwserAdvisor : Le plus simple, prêt à l'emploi.
+* RetrievalAugmentationAdvisor : Permet d'implémenter des flux RAG complexe basés sur l'[architecture modulaire](https://arxiv.org/abs/2407.21059)
+
+![](./assets/images/modular_rag.svg 'w-1000 center')
+
+
+Il suffit de l'ajouter au chatClient de la manière suivante :
 
 ```java
 ChatResponse response = ChatClient.builder(chatModel)
@@ -88,15 +88,13 @@ ChatResponse response = ChatClient.builder(chatModel)
         .chatResponse();
 ```
 
-NOTE : Il est possible d'implémenter sa propre recherche de similarité afin d'être plus précis : 
+Notes:
 
-```java
-  SearchRequest searchRequest = SearchRequest
-    .builder()
-    .filterExpression(
-      // préciser la recherche de document dans la catégorie adminrh
-      b.eq("category", "adminrh")
-        .build()
-    )
-```
+The QuestionAnswerAdvisor uses a default template to augment the user question with the retrieved documents.
+You can customize this behavior by providing your own PromptTemplate object via the .promptTemplate() builder method.
+
+Pre-Retrieval modules are responsible for processing the user query to achieve the best possible retrieval results.
+QueryTransformer RewriteQueryTransformer
+
+Retrieval VectorStoreDocumentRetriever
 
