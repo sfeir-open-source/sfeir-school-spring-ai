@@ -21,7 +21,12 @@
   </div>
 </section>
 
-
+Notes:
+https://waylandzhang.github.io/en/transformer-architecture.html
+Le modèle se compose de deux parties : l'encodeur et le décodeur. En général, les architectures basées uniquement sur l'encodeur sont performantes 
+pour extraire des informations d'un texte pour des tâches telles que la classification et la régression, tandis que les modèles basés uniquement 
+sur le décodeur se spécialisent dans la génération de texte. Par exemple, GPT, qui se concentre sur la génération de texte, 
+appartient à la catégorie des modèles basés uniquement sur le décodeur.
 
 ##==##
 
@@ -29,7 +34,7 @@
 
 ## Modèle d'embedding
 
-<img src="../../assets/images/encodeur.png" width="50%" height="10%" alt="transformers">
+<img src="../../assets/images/encodeur.png" width="50%" height="10%" alt="encoder">
 
 Technique d'apprentissage automatique qui transforme des données complexes et de haute dimension en vecteur de nombres réels
 
@@ -41,6 +46,8 @@ des questions précises où la compréhension fine du contexte est cruciale.
 
 Exemple : les modèles basés sur l'architecture BERT 
 
+Notes:
+L'Encodeur (Encoder) : Lit et comprend le texte d'entrée.
 
 ##==##
 
@@ -48,7 +55,7 @@ Exemple : les modèles basés sur l'architecture BERT
 # LLM
 ## Modèle dit génératif
 
-<img src="../../assets/images/decodeur.png" width="50%" height="10%" alt="transformers">
+<img src="../../assets/images/decodeur.png" width="50%" height="10%" alt="decoder">
 
 Vu comme un moteur de génération
 <br></br>
@@ -59,6 +66,8 @@ l'écriture de code et toute tâche nécessitant de produire de nouvelles séque
 
 Exemple : GPT
 
+Notes:
+Le Décodeur (Decoder) : Génère le texte de sortie (traduction, réponse, etc.).
 
 ##==##
 
