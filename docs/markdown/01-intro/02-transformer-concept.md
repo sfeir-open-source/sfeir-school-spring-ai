@@ -27,6 +27,7 @@ Le modèle se compose de deux parties : l'encodeur et le décodeur. En général
 pour extraire des informations d'un texte pour des tâches telles que la classification et la régression, tandis que les modèles basés uniquement 
 sur le décodeur se spécialisent dans la génération de texte. Par exemple, GPT, qui se concentre sur la génération de texte, 
 appartient à la catégorie des modèles basés uniquement sur le décodeur.
+https://poloclub.github.io/transformer-explainer/
 
 ##==##
 
@@ -38,16 +39,16 @@ appartient à la catégorie des modèles basés uniquement sur le décodeur.
 
 Technique d'apprentissage automatique qui transforme des données complexes et de haute dimension en vecteur de nombres réels
 
-<br></br>
+![](./assets/images/spring-ai-embeddings.jpg 'h-300 center')
+
 
 ### *Cas d'usage*
 Idéal pour la classification de texte, l'analyse de sentiments, la recherche sémantique et la réponse à 
 des questions précises où la compréhension fine du contexte est cruciale.
 
-Exemple : les modèles basés sur l'architecture BERT 
-
 Notes:
 L'Encodeur (Encoder) : Lit et comprend le texte d'entrée.
+Exemple : le modèle de langage BERT basé sur le transformeur, n'utilisant que sa partie « encodeur »
 
 ##==##
 
@@ -60,6 +61,7 @@ L'Encodeur (Encoder) : Lit et comprend le texte d'entrée.
 Vu comme un moteur de génération
 <br></br>
 
+
 ### *Cas d'usage*
 Parfait pour la rédaction d'articles, les chatbots conversationnels, le résumé de textes, 
 l'écriture de code et toute tâche nécessitant de produire de nouvelles séquences de mots.
@@ -70,7 +72,15 @@ Notes:
 Le Décodeur (Decoder) : Génère le texte de sortie (traduction, réponse, etc.).
 
 ##==##
+<!-- .slide: class="quote-slide" -->
 
+<blockquote>
+  <cite>
+    Un agent ça agit...
+  </cite>
+</blockquote>
+
+##==##
 
 <section>
 <h1>Agent IA</h1>
@@ -80,3 +90,13 @@ Le Décodeur (Decoder) : Génère le texte de sortie (traduction, réponse, etc.
     <img src="../../assets/images/agent-ia-exemple.png" width="80%" height="60%" alt="transformers">
   </div>
 </section>
+
+Notes:
+Prenons l'exemple d'une réunion professionnelle très importante sur le choix du prochain team building
+Plusieurs interlocuteurs dans la salle, chacun y va de son commentaire. Notre agent doit être capable : 
+- de déclencher l'enregistrement audio de la réunion
+- transcrire en texte avec l'intervention de chacun des participants
+- puis faire une synthèse (ce sera le 18 décembre à 18h à l'éléphant)
+- prévenir les membres de l'équipe par envoie d'un mail
+- enregistrer le contenu et le stocker sur le drive pour preuve
+- et enfin planifier dans l'agenda google
