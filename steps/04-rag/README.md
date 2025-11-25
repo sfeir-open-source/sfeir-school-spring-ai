@@ -44,14 +44,13 @@ est mise à true*
     <!-- Vector Databases -->
     <dependency>
       <groupId>org.springframework.ai</groupId>
-      <artifactId>spring-ai-pgvector-store-spring-boot-starter</artifactId>
+      <artifactId>spring-ai-starter-vector-store-pgvector</artifactId>
     </dependency>
 ```
 ### Chargement des données
 - Créer un service `DataLoaderService` qui aura pour objectif de charger un ensemble
 de document au démarrage de l'application via l'implémentation de l'interface
 `CommandLineRunner`
-
 
 - Ce service nécessitera l'injection d'un vectoreStore (`PGVectorStore` dans notre cas) pour échanger avec la base de
 donnée et de l'utilisation de la classe `TokenTextSplitter` pour découper les documents en morceaux (chunks) avant

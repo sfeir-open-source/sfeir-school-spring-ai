@@ -49,7 +49,6 @@ public class DataLoaderService {
 
       }
     });
-
   }
 
   private DocumentReader getReaderForResource(Resource resource) {
