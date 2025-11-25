@@ -14,12 +14,10 @@ function introSlides() {
   return [
     //
     `${directory}00-definition.md`,
-    `${directory}01-gen-ai.md`,
     `${directory}02-transformer-concept.md`,
     `${directory}03-ia-concept.md`,
     `${directory}10-goal.md`,
-    `${directory}11-project-life.md`,
-    `${directory}12-features.md`
+    `${directory}11-features.md`
   ];
 }
 function ollamaSlides() {

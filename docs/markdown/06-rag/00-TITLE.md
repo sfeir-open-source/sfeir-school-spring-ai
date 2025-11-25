@@ -1,3 +1,3 @@
 <!-- .slide: class="transition" -->
 
-# RAG
+# RAG (Retrieval Augmented Generation)

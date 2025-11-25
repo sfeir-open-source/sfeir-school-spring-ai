@@ -15,6 +15,8 @@ Utilisation des plusieurs modèles :
   <img src="../../assets/images/og.png" width="30%" height="20%" alt="initializr">
 </div>
 
+Notes:
+Ollama permet l'accès plus simple aux modèles de langage, tout en offrant avec confidentialité et flexibilité en prime.
 
 ##==##
 

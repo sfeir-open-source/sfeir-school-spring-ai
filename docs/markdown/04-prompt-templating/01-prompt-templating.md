@@ -26,25 +26,25 @@ Le composant clé de ce système est la classe ```PromptTemplate```
   }
 ```
 
-
 ##==##
-
 
 # Structurer son prompt
 
 ## Message
 
-Un prompt est constitué d'une liste de message dont chacun est associé à un rôle spécifique. Spring AI propose une interface ```Message``` 
-avec différentes implémentations pour modéliser les messages. On distingue 4 rôles possible :
+4 rôles possibles :
 
-| Rôle      | Définition                                                                                                                                                           |
-|-----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| USER      | Représente l'utilisateur dont le message est l'entrée directe du LLM                                                                                                 |
-| ASSISTANT | Représente la réponse générée par le modèle d'IA. Elle maintient le flux de la conversation et peut également passer des instructions sur la demande d'appel d'outil |
-| SYSTEM    | Message système ayant pour but de donner des instructions, des contraintes et un contexte général                                                                    |
-| TOOL      | Utiliser pour fournir au modèle le résultat de l'exécution d'une fonction ou d'un outil externe                                                                      |
+| Rôle      | Définition                                                                                                                                                                |
+|-----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| USER      | Représente l'utilisateur dont le message est l'entrée directe du LLM                                                                                                      |
+| ASSISTANT | Représente la réponse générée par le modèle d'IA. Elle maintient le flux de la conversation <br/>et peut également passer des instructions sur la demande d'appel d'outil |
+| SYSTEM    | Message système ayant pour but de donner des instructions, des contraintes et un contexte général                                                                         |
+| TOOL      | Utiliser pour fournir au modèle le résultat de l'exécution d'une fonction ou d'un outil externe                                                                           |
 
 
+Notes:
+Un prompt est constitué d'une liste de message dont chacun est associé à un rôle spécifique. Spring AI propose une interface ```Message```
+avec différentes implémentations pour modéliser les messages.
 
 ##==##
 

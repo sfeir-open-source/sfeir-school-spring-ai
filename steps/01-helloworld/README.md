@@ -2,12 +2,20 @@
 
 ## Présentation de l'environnement de développement
 
-La structure de l'application est déjà faite, vous permettant de vous concentrer sur la construction
+La structure de l'application étant déjà faite, vous n'avez plus qu'à vous concentrer sur la construction
 de votre Aixolotl.
-Une application front-end est également déjà prête et démarrera en même temps que le back-end.
+Une application front-end est également déjà disponible, vous le trouverez dans le dossier ./aixolotl-chat-ui à la racine du repo.
+Une fois dedans exécuter les commandes suivantes : 
 
-L'API HTTP permettant de connecter l'interface web et le back-end existe déjà (classe `ConverseWithAixolotlHttpApi`).
-Cette dernière utilise un objet de type `ConverseWithAssistant` pour envoyer le prompt de l'utilisateur au modèle choisi.
+* `npm install`
+* `npm run dev`
+
+Votre ui est prête !
+
+#### retour au projet 01-helloworld
+
+Dans l'application vous trouverez le controleur http permettant de connecter l'interface web et le back-end existe déjà (classe `ConverseWithAixolotlHttpApi`).
+Ce dernier utilise un objet de type `ConverseWithAssistant` pour envoyer le prompt de l'utilisateur au modèle choisi.
 
 ## Implémentez l'interface ConverseWithAssistant
 
