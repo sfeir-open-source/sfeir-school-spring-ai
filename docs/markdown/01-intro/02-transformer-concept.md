@@ -34,8 +34,7 @@ https://poloclub.github.io/transformer-explainer/
 # LLM
 
 ## Modèle d'embedding
-
-<img src="../../assets/images/encodeur.png" width="50%" height="10%" alt="encoder">
+![](./assets/images/encodeur.png 'h-150 center')
 
 Technique d'apprentissage automatique qui transforme des données complexes et de haute dimension en vecteur de nombres réels
 
@@ -56,7 +55,7 @@ Exemple : le modèle de langage BERT basé sur le transformeur, n'utilisant que 
 # LLM
 ## Modèle dit génératif
 
-<img src="../../assets/images/decodeur.png" width="50%" height="10%" alt="decoder">
+![](./assets/images/decodeur.png 'h-150 center')
 
 Vu comme un moteur de génération
 <br></br>
@@ -82,14 +81,15 @@ Le Décodeur (Decoder) : Génère le texte de sortie (traduction, réponse, etc.
 
 ##==##
 
-<section>
-<h1>Agent IA</h1>
-  <p>Système qui utilise un grand modèle de langage (LLM) comme cerveau central pour raisonner, planifier et exécuter des tâches complexes de manière autonome.</p>
-  <br></br>
-  <div class="r-hstack">
-    <img src="../../assets/images/agent-ia-exemple.png" width="80%" height="60%" alt="transformers">
-  </div>
-</section>
+# Agent IA
+
+
+![](./assets/images/agent-ia-exemple.png 'h-300 center')
+
+<br></br>
+Système qui utilise un grand modèle de langage (LLM) comme cerveau central pour raisonner, 
+planifier et exécuter des tâches complexes de manière autonome.
+
 
 Notes:
 Prenons l'exemple d'une réunion professionnelle très importante sur le choix du prochain team building

@@ -31,11 +31,11 @@ externe et contrôlée. Plutôt que de se baser uniquement sur les données de l
 
 ## Génération
 
-<img class="center" src="./assets/images/flow_rag.png" style="width: 80vw">
-
-![](./assets/images/cosinus_similarity.svg 'float-right')
+![](./assets/images/flow_rag.png 'h-600')
+![](./assets/images/cosine_similarity.png 'h-100')
 
 ##==##
+
 
 # Retrieval Augmented Generation (RAG)
 
