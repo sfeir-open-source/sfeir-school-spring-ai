@@ -32,7 +32,7 @@ public class ConverseWithAixolotl implements ConverseWithAssistant {
   private final VectorStore vectorStore;
   private final ModularRagService modularRagService;
   private static final int MAX_RESULTS = 3;
-
+  private final ChatClient.Builder builder;
   @Value("${sensitiveWords}")
   private List<String> sensitiveWords;
 
@@ -44,15 +44,15 @@ public class ConverseWithAixolotl implements ConverseWithAssistant {
 
     RetrievalAugmentationAdvisor retrievalAugmentationAdvisor = modularRagService.retrievalAugmentationAdvisor(ChatClient.builder(chatModel));
 
-    return chatClientBuilder
+    return builder
       .build()
       .prompt()
       .system(buildSystemPrompt())
       .user(prompt)
       .advisors(
         MessageChatMemoryAdvisor.builder(aixolotlMemory).conversationId(conversationId.toString()).build(),
-        //QuestionAnswerAdvisor.builder(vectorStore).searchRequest(searchRequest).build(),// RAG
-        retrievalAugmentationAdvisor, // MODULAR RAG
+        QuestionAnswerAdvisor.builder(vectorStore).searchRequest(searchRequest).build(),// RAG
+        //retrievalAugmentationAdvisor, // MODULAR RAG
         new SafeGuardAdvisor(sensitiveWords)
       )
       .stream()
