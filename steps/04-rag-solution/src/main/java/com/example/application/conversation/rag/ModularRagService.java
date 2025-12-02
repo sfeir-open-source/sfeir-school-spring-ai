@@ -26,8 +26,6 @@ public class ModularRagService {
                                        // PRE-RETRIEVAL
                                        .queryTransformers(RewriteQueryTransformer.builder()
                                                                                  .chatClientBuilder(chatClientBuilder.clone())
-                                                                                 .promptTemplate()
-                                                                                 .targetSearchSystem()
                                                                                  .build())
                                        //.queryExpander(queryExpander(chatClientBuilder.clone()))
                                        //.scheduler(Schedulers.boundedElastic())

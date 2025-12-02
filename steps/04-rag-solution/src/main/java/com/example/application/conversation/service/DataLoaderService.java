@@ -16,12 +16,22 @@ import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class DataLoaderService {
 
   @Value("classpath:/rag/*")
   private Resource[] resources;
+
+  private static final Map<String, String> METADATA_DOCUMENTS = Map.of(
+    "contact.json", "contact",
+    "dispositif_participation.pdf", "advantage",
+    "formations.txt", "adminRh",
+    "materiel.txt", "adminRh",
+    "ticket_restaurant.txt", "advantage",
+    "zenride.txt", "advantage"
+  );
 
   private final VectorStore vectorStore;
 
@@ -42,7 +52,7 @@ public class DataLoaderService {
         DocumentReader reader = getReaderForResource(doc);
         List<Document> documents = reader.get();
         List<Document> splitDocuments = textSplitter.apply(documents);
-        splitDocuments.forEach(splitDocument -> splitDocument.getMetadata().put("category", "adminrh"));
+        splitDocuments.forEach(splitDocument -> splitDocument.getMetadata().put("category", METADATA_DOCUMENTS.get(doc.getFilename())));
         vectorStore.write(splitDocuments);
 
         ragDocumentRepository.save(new RagDocument(doc.getFilename()));
