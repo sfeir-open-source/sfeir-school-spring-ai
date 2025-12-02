@@ -29,7 +29,6 @@ public class ConverseWithAixolotl implements ConverseWithAssistant {
   private final UUID conversationId = UUID.randomUUID();
   private final ChatModel chatModel;
   private final ChatMemory aixolotlMemory;
-  private final VectorStore vectorStore;
   private final ModularRagService modularRagService;
   private static final int MAX_RESULTS = 3;
   private final ChatClient.Builder builder;
@@ -40,8 +39,6 @@ public class ConverseWithAixolotl implements ConverseWithAssistant {
   @Override
   public Flux<String> converse(final String prompt) {
 
-    var chatClientBuilder = ChatClient.builder(chatModel);
-
     RetrievalAugmentationAdvisor retrievalAugmentationAdvisor = modularRagService.retrievalAugmentationAdvisor(ChatClient.builder(chatModel));
 
     return builder
@@ -51,8 +48,8 @@ public class ConverseWithAixolotl implements ConverseWithAssistant {
       .user(prompt)
       .advisors(
         MessageChatMemoryAdvisor.builder(aixolotlMemory).conversationId(conversationId.toString()).build(),
-        QuestionAnswerAdvisor.builder(vectorStore).searchRequest(searchRequest).build(),// RAG
-        //retrievalAugmentationAdvisor, // MODULAR RAG
+        //QuestionAnswerAdvisor.builder(vectorStore).searchRequest(searchRequest).build(),// RAG
+        retrievalAugmentationAdvisor, // MODULAR RAG
         new SafeGuardAdvisor(sensitiveWords)
       )
       .stream()

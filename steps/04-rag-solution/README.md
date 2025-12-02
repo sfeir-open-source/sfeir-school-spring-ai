@@ -156,6 +156,143 @@ Il n'y a plus qu'à s'assurer que le document n'est pas déjà présent en base 
 
 ## `Advisor` API
 
+Nous allons maintenant implémenter la partie `query`.
+
 ### `QuestionAnswerAdvisor`
 
-Implémenter la partie `query`
+La première possibilité consiste à utiliser `QuestionAnswerAdvisor` pour lequel il suffit de l'instancier dans
+le `ChatClient` :
+
+```java
+  @Override
+public Flux<String> converse(final String prompt) {
+  return builder
+    .build()
+    .prompt()
+    .system(buildSystemPrompt())
+    .user(prompt)
+    .advisors(
+      MessageChatMemoryAdvisor.builder(aixolotlMemory)
+                              .conversationId(conversationId.toString())
+                              .build(),
+      QuestionAnswerAdvisor.builder(vectorStore)           // Instancier ICI
+                           .searchRequest(searchRequest)   // requête custom
+                           .build(),
+      new SafeGuardAdvisor(sensitiveWords)
+    )
+    .stream()
+    .content()
+    ;
+}
+```
+
+Il est possible de lui spécifier une requête de recherche par similarité :
+
+```java
+  SearchRequest searchRequest = SearchRequest
+    .builder()
+    .filterExpression(
+      // préciser la recherche de document dans la catégorie adminrh
+      b.eq("category", "adminrh")
+        .build()
+    )
+    .similarityThreshold(0.9)
+    .topK(MAX_RESULTS)
+    .build();
+```
+:information_source: N'hésitez pas à tester différente requête 
+
+### `RetrievalAugmentationAdvisor`
+
+Le RetrievalAugmentationAdivsor ne permet de d'implémentater une solution RAG plus avancée et modulaire. 
+Pour cela nous allons créer un nouveau service `ModularRagService` :
+
+```java
+@Service
+@RequiredArgsConstructor
+public class ModularRagService {
+
+  private final VectorStore vectorStore;
+
+  public RetrievalAugmentationAdvisor retrievalAugmentationAdvisor(ChatClient.Builder chatClientBuilder) {
+    return RetrievalAugmentationAdvisor.builder()
+                                       // PRE-RETRIEVAL
+                                       .queryTransformers(RewriteQueryTransformer.builder()
+                                                                                 .chatClientBuilder(chatClientBuilder.clone())
+                                                                                 .build())
+                                       //.queryExpander(queryExpander(chatClientBuilder.clone()))
+                                       //.scheduler(Schedulers.boundedElastic())
+                                       // RETRIEVAL
+                                       .documentRetriever(documentRetriever())
+                                       // POST-RETRIEVAL
+                                       //.documentPostProcessors()
+                                       // GENERATION
+                                       //.queryAugmenter(queryAugmenter())
+                                       .build();
+  }
+```
+Le code ci-desssus propose plusieurs solutions de construction de notre Advisor. On distingue 3 étapes :
+
+* Pre-retrieval
+* Retrieval
+* Post-retrieval
+
+#### Pre-retrieval
+Ici, nous utilisons le service `RewriteQueryTransformer` qui nous permet de reformuler la requête en fonction de la cible, par défault celle-ci est une base de 
+données vectorielles. Le prompt par défault peut-être remplacer par un autre adapté à votre besoin :
+
+```java
+RewriteQueryTransformer.builder()
+                       .chatClientBuilder(chatClientBuilder.clone())
+                       .promptTemplate() // ICI pour spécifier son prompt
+                       .targetSearchSystem() // ICI pour spécifier sa cible
+                       .build();
+```
+
+:information_source: N'hésitez pas à tester la technique `MultiQueryExpander` qui change l'approche séquentielle en une multitude de requêtes à la base.
+
+```java
+  private QueryExpander queryExpander(ChatClient.Builder chatClientBuilder) {
+    return MultiQueryExpander.builder()
+                             .chatClientBuilder(chatClientBuilder)
+                             .numberOfQueries(3)
+                             .build();
+  }
+```
+
+#### Retrieval
+Cette étape concerne la récupération des documents en base. Etape déjà abordée avec l'advisor `QuestionAnswerAdvisor` :
+
+```java
+  private DocumentRetriever documentRetriever() {
+    FilterExpressionBuilder b = new FilterExpressionBuilder();
+    return VectorStoreDocumentRetriever.builder()
+                                       .vectorStore(this.vectorStore)
+                                       .filterExpression(
+                                         b.eq("category", "adminrh")
+                                          .build()
+                                       )
+                                       .build();
+  }
+```
+
+#### Post-Retrieval
+Il est possible de réaliser un traitement sur les documents récupérés de la base. Par exemple, réduire le contexte en supprimant les informations les moins 
+pertinentes récupérées de la base (problème du "[lost in the middle](https://medium.com/@abheshith7/mastering-the-lost-in-the-middle-problem-in-rag-e08482780b0f)").
+
+```java
+RetrievalAugmentationAdvisor.builder()
+                            .documentPostProcessors() // passer votre service dans cette méthode 
+                            .build();
+```
+
+Vous constatez également le composant `QueryAugmenter`. Un module destiné à enrichir la requête initiale par des données additionnelles, 
+afin d'apporter au LLM le contexte requis pour répondre à l'utilisateur. Ici, on utilise l'implémentation `ContextualQueryAugmenter` :
+
+```java
+  private QueryAugmenter queryAugmenter() {
+    return ContextualQueryAugmenter.builder()
+                                   .allowEmptyContext(true)
+                                   .build();
+  }
+```

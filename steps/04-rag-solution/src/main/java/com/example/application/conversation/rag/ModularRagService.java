@@ -13,6 +13,7 @@ import org.springframework.ai.rag.retrieval.search.VectorStoreDocumentRetriever;
 import org.springframework.ai.vectorstore.VectorStore;
 import org.springframework.ai.vectorstore.filter.FilterExpressionBuilder;
 import org.springframework.stereotype.Service;
+import reactor.core.scheduler.Schedulers;
 
 @Service
 @RequiredArgsConstructor
@@ -22,13 +23,19 @@ public class ModularRagService {
 
   public RetrievalAugmentationAdvisor retrievalAugmentationAdvisor(ChatClient.Builder chatClientBuilder) {
     return RetrievalAugmentationAdvisor.builder()
-                                       .queryAugmenter(queryAugmenter())
+                                       // PRE-RETRIEVAL
                                        .queryTransformers(RewriteQueryTransformer.builder()
-                                                            .chatClientBuilder(chatClientBuilder.clone())
-                                                            .targetSearchSystem("vectore stores")
-                                                            .build())
-                                       .queryExpander(queryExpander(chatClientBuilder.clone()))
+                                                                                 .chatClientBuilder(chatClientBuilder.clone())
+                                                                                 .promptTemplate()
+                                                                                 .targetSearchSystem()
+                                                                                 .build())
+                                       //.queryExpander(queryExpander(chatClientBuilder.clone()))
+                                       //.scheduler(Schedulers.boundedElastic())
+                                       // RETRIEVAL
                                        .documentRetriever(documentRetriever())
+                                       // POST-RETRIEVAL
+                                       //.documentPostProcessors()
+                                       //.queryAugmenter(queryAugmenter())
                                        .build();
   }
 
@@ -52,6 +59,7 @@ public class ModularRagService {
   private QueryExpander queryExpander(ChatClient.Builder chatClientBuilder) {
     return MultiQueryExpander.builder()
                              .chatClientBuilder(chatClientBuilder)
+                             .numberOfQueries(3)
                              .build();
   }
 
