@@ -34,6 +34,6 @@ public class McpSolutionApplication implements CommandLineRunner {
   public void run(String... args) throws Exception {
     logger.info("Loading data...");
     dataLoaderService.load();
-    logger.info("Loading complete...");
+
   }
 }

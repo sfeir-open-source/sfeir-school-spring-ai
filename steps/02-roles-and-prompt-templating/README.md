@@ -5,7 +5,7 @@ Vous venez de créer un assistant permettant d'échanger avec un modèle de lang
 Nous allons maintenant personnaliser notre assistant. Pour l'instant, celui-ci ne fait que transmettre le prompt
 de notre utilisateur au modèle de langage et renvoie la réponse du modèle telle quelle.
 
-Afin d'améliorer ses performances nous allons lui apporter un peu de contexte et d'identité.
+Afin d'améliorer ses performances, nous allons lui apporter un peu de contexte et d'identité.
 
 L'objectif de cet exercice est de vous familiariser avec l'API `Message` et `PromptTemplate` de Spring AI,
 en mettant en place un chatbot Axolotl. Vous apprendrez à utiliser des templates pour personnaliser les

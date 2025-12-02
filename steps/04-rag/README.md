@@ -7,7 +7,7 @@ La génération augmentée de récupération ou RAG (Retrieval Augmented Generat
 permettre de compléter les données que contient le LLM avec une sélection de sources de
 connaissances externes.
 
-Ainsi dans ce 4ème lab, nous allons apprendre à travailler avec une base de données
+Ainsi dans ce 4ᵉ lab, nous allons apprendre à travailler avec une base de données
 vectorielle, technologie indispensable à cette méthode. 
 
 ## Ce qu'il faut faire

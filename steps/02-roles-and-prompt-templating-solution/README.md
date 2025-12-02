@@ -2,7 +2,7 @@
 
 ## Découverte de l'API `Message` et `PromptTemplate`
 
-Pour le prompt représentant le système, nous allons utilisé le template suivant :
+Pour le prompt représentant le système, nous allons utiliser le template suivant :
 
 > You are a blue smart Axolotl chatbot. Your name is {name}.
 > You also have memory of your conversations.
