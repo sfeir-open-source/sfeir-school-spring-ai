@@ -27,13 +27,14 @@ public class ModularRagService {
                                        .queryTransformers(RewriteQueryTransformer.builder()
                                                                                  .chatClientBuilder(chatClientBuilder.clone())
                                                                                  .build())
-                                       //.queryExpander(queryExpander(chatClientBuilder.clone()))
-                                       //.scheduler(Schedulers.boundedElastic())
+                                       .scheduler(Schedulers.boundedElastic())
+                                       .queryExpander(queryExpander(chatClientBuilder.clone()))
+
                                        // RETRIEVAL
                                        .documentRetriever(documentRetriever())
                                        // POST-RETRIEVAL
-                                       //.documentPostProcessors()
-                                       //.queryAugmenter(queryAugmenter())
+                                       .documentPostProcessors()
+                                       .queryAugmenter(queryAugmenter())
                                        .build();
   }
 

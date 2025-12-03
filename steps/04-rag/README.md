@@ -80,7 +80,7 @@ de la méthode RAG (https://docs.spring.io/spring-ai/reference/1.0/api/retrieval
 via la classe `SearchRequest`. Vous pourrez jouer sur les différents paramètres LLM (top K, top P, temperature), ainsi que sur les metadatas de
 vos documents par exemple.
 
-Les techniques de RAG évoluent rapidement et les flows se complexifient. Afin de s'adpater
+Les techniques de RAG évoluent rapidement et les flows se complexifient. Afin de s'adapter
 facilement au besoin, une architecture modulaire a vu le jour https://docs.spring.io/spring-ai/reference/api/retrieval-augmented-generation.html#modules
 
 ### RAG modulaire

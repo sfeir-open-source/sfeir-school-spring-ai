@@ -11,9 +11,7 @@ import org.springframework.ai.chat.memory.ChatMemory;
 import org.springframework.ai.chat.model.ChatModel;
 import org.springframework.ai.chat.prompt.SystemPromptTemplate;
 import org.springframework.ai.tool.ToolCallbackProvider;
-import org.springframework.ai.vectorstore.SearchRequest;
 import org.springframework.ai.vectorstore.VectorStore;
-import org.springframework.ai.vectorstore.filter.FilterExpressionBuilder;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
@@ -28,8 +26,6 @@ import static java.util.Map.ofEntries;
 @Service
 public class ConverseWithAixolotl implements ConverseWithAssistant {
 
-  private static final int MAX_RESULTS = 3;
-
   private final ChatClient chatClient;
 
   public ConverseWithAixolotl(ChatModel chatModel,
@@ -38,19 +34,6 @@ public class ConverseWithAixolotl implements ConverseWithAssistant {
                               EmailSenderTool emailService,
                               ToolCallbackProvider tools,
                               @Value("${sensitiveWords}")  List<String> sensitiveWords) {
-
-    FilterExpressionBuilder b = new FilterExpressionBuilder();
-
-    SearchRequest searchRequest = SearchRequest
-      .builder()
-      .filterExpression(
-        // préciser la recherche de document dans la catégorie adminrh
-        b.eq("category", "adminrh")
-          .build()
-      )
-      .similarityThreshold(0.9)
-      .topK(MAX_RESULTS)
-      .build();
 
     this.chatClient = ChatClient.builder(chatModel)
       .defaultSystem(buildSystemPrompt())

@@ -185,7 +185,7 @@ public Flux<String> converse(final String prompt) {
       MessageChatMemoryAdvisor.builder(aixolotlMemory)
                               .conversationId(conversationId.toString())
                               .build(),
-      QuestionAnswerAdvisor.builder(vectorStore)           // Instancier ICI
+      QuestionAnswerAdvisor.builder(vectorStore)
                            .searchRequest(searchRequest)   // requête custom
                            .build(),
       new SafeGuardAdvisor(sensitiveWords)
