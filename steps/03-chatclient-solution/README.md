@@ -5,7 +5,7 @@ Découverte des APIs `ChatMemory`, `ChatClient` et `Advisor`.
 
 ## Utilisation de `ChatClient` à la place de `ChatModel`
 
-Afin d'intercepter les requêtes et les réponses entre l'utilisateur et le modèle d'IA 
+Afin d'intercepter les requêtes et les réponses entre l'utilisateur et le modèle d'IA, 
 nous allons devoir utiliser l'API `Advisor`.
 Pour en profiter, il est essentiel d'utiliser un `ChatClient` qui est une enveloppe autour
 du `ChatModel` (qui était limité à simplement envoyer et recevoir des messages).
@@ -36,7 +36,7 @@ Cette interface, très simple, nous forcera à implémenter trois méthodes : `a
 
 Pour donner de la mémoire à notre mascotte, nous allons stocker les messages de la conversation dans
 une `Map`. La clé sera un identifiant unique qui représente la conversation et la valeur sera une simple
-liste de messages lié à cette conversation.
+liste de messages liée à cette conversation.
 
 Cette `Map` sera déclarée et initialisée en tant qu'attribut de classe, les données seront donc dans la
 mémoire RAM. On peut imaginer une implémentation plus complexe en stockant les messages dans

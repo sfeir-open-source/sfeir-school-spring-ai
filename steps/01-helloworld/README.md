@@ -33,7 +33,7 @@ Récapitulons :
 - Injectez `org.springframework.ai.chat.model.ChatModel` afin d'y utiliser une instance dans la fonction à implémenter
 - Plusieurs `ChatModel` sont fournis par Spring AI,
   [utilisez l'implémentation pour Ollama](https://docs.spring.io/spring-ai/reference/api/chat/ollama-chat.html#_auto_configuration) qui vous permettra de vous y connecter
-- Optionnel: depuis le fichier de propriétés `application.properties`, précisez quel modèle utiliser
+- Optionnel : depuis le fichier de propriétés `application.properties`, précisez quel modèle utiliser
 
 Grâce à ce premier lab, vous utiliserez l'une des API les plus importantes de Spring AI : `ChatModel` !
 

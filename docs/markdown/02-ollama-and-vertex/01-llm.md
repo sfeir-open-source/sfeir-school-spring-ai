@@ -11,9 +11,7 @@ Utilisation des plusieurs modèles :
 * deepseek-r1:8b
 * ...
 
-<div class="r-hstack">
-  <img src="../../assets/images/og.png" width="30%" height="20%" alt="initializr">
-</div>
+![](./assets/images/og.png 'h-300 center')
 
 Notes:
 Ollama permet l'accès plus simple aux modèles de langage, tout en offrant avec confidentialité et flexibilité en prime.
@@ -39,7 +37,6 @@ Plate-forme de machine learning (ML) permettant de déployer et personnaliser de
 pgvector est une extension de PostgreSQL permettant la recherche par similarité sur des vecteurs. Outils utilisés dans plusieurs cas d'usage, particulièrement 
 pour le RAG étudié aujourd'hui 
 
-<div class="r-hstack">
-  <img src="../../assets/images/pgvector-project.png" width="60%" height="40%" alt="initializr">
-</div>
+![](./assets/images/pgvector-project.png 'center h-80')
+
 

@@ -1,6 +1,8 @@
 package com.example.application.conversation.service;
 
 import com.example.application.conversation.ConverseWithAssistant;
+import com.example.application.conversation.rag.ModularRagService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.ai.chat.client.advisor.MessageChatMemoryAdvisor;
 import org.springframework.ai.chat.client.advisor.SafeGuardAdvisor;
@@ -8,6 +10,7 @@ import org.springframework.ai.chat.client.advisor.vectorstore.QuestionAnswerAdvi
 import org.springframework.ai.chat.memory.ChatMemory;
 import org.springframework.ai.chat.model.ChatModel;
 import org.springframework.ai.chat.prompt.SystemPromptTemplate;
+import org.springframework.ai.rag.advisor.RetrievalAugmentationAdvisor;
 import org.springframework.ai.vectorstore.SearchRequest;
 import org.springframework.ai.vectorstore.VectorStore;
 import org.springframework.ai.vectorstore.filter.FilterExpressionBuilder;
@@ -19,34 +22,34 @@ import java.util.*;
 
 import static java.util.Map.*;
 
+@RequiredArgsConstructor
 @Service
 public class ConverseWithAixolotl implements ConverseWithAssistant {
 
   private final UUID conversationId = UUID.randomUUID();
   private final ChatModel chatModel;
   private final ChatMemory aixolotlMemory;
-  private final VectorStore vectorStore;
+  private final ModularRagService modularRagService;
   private static final int MAX_RESULTS = 3;
-
+  private final ChatClient.Builder builder;
   @Value("${sensitiveWords}")
   private List<String> sensitiveWords;
 
-  public ConverseWithAixolotl(ChatModel chatModel, ChatMemory aixolotlMemory, VectorStore vectorStore) {
-    this.chatModel = chatModel;
-    this.aixolotlMemory = aixolotlMemory;
-    this.vectorStore = vectorStore;
-  }
 
   @Override
   public Flux<String> converse(final String prompt) {
-    return ChatClient.builder(chatModel)
+
+    RetrievalAugmentationAdvisor retrievalAugmentationAdvisor = modularRagService.retrievalAugmentationAdvisor(ChatClient.builder(chatModel));
+
+    return builder
       .build()
       .prompt()
       .system(buildSystemPrompt())
       .user(prompt)
       .advisors(
         MessageChatMemoryAdvisor.builder(aixolotlMemory).conversationId(conversationId.toString()).build(),
-        QuestionAnswerAdvisor.builder(vectorStore).searchRequest(searchRequest).build(), // RAG
+        //QuestionAnswerAdvisor.builder(vectorStore).searchRequest(searchRequest).build(),// RAG
+        retrievalAugmentationAdvisor, // MODULAR RAG
         new SafeGuardAdvisor(sensitiveWords)
       )
       .stream()
