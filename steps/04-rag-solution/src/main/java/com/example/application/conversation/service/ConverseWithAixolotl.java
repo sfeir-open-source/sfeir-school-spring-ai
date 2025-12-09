@@ -57,20 +57,6 @@ public class ConverseWithAixolotl implements ConverseWithAssistant {
       ;
   }
 
-
-  FilterExpressionBuilder b = new FilterExpressionBuilder();
-
-  SearchRequest searchRequest = SearchRequest
-    .builder()
-    .filterExpression(
-      // préciser la recherche de document dans la catégorie adminrh
-      b.eq("category", "adminrh")
-        .build()
-    )
-    .similarityThreshold(0.9)
-    .topK(MAX_RESULTS)
-    .build();
-
   private static String buildSystemPrompt() {
     final var systemPromptTemplate = new SystemPromptTemplate("""
                   You are a blue smart Axolotl chatbot. Your name is {name}.

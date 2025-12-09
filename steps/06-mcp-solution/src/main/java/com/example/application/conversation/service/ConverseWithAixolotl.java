@@ -1,6 +1,7 @@
 package com.example.application.conversation.service;
 
 import com.example.application.conversation.ConverseWithAssistant;
+import com.example.application.conversation.rag.ModularRagService;
 import com.example.application.conversation.tool.EmailSenderTool;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.ai.chat.client.ChatClient;
@@ -10,6 +11,7 @@ import org.springframework.ai.chat.client.advisor.vectorstore.QuestionAnswerAdvi
 import org.springframework.ai.chat.memory.ChatMemory;
 import org.springframework.ai.chat.model.ChatModel;
 import org.springframework.ai.chat.prompt.SystemPromptTemplate;
+import org.springframework.ai.rag.advisor.RetrievalAugmentationAdvisor;
 import org.springframework.ai.tool.ToolCallbackProvider;
 import org.springframework.ai.vectorstore.VectorStore;
 import org.springframework.beans.factory.annotation.Value;
@@ -28,12 +30,20 @@ public class ConverseWithAixolotl implements ConverseWithAssistant {
 
   private final ChatClient chatClient;
 
+  private final ModularRagService modularRagService;
+
   public ConverseWithAixolotl(ChatModel chatModel,
                               ChatMemory chatMemory,
                               VectorStore vectorStore,
                               EmailSenderTool emailService,
                               ToolCallbackProvider tools,
-                              @Value("${sensitiveWords}")  List<String> sensitiveWords) {
+                              @Value("${sensitiveWords}")  List<String> sensitiveWords,
+                              ModularRagService modularRagService) {
+
+    this.modularRagService = modularRagService;
+
+    //RetrievalAugmentationAdvisor retrievalAugmentationAdvisor = modularRagService.retrievalAugmentationAdvisor(ChatClient.builder(chatModel));
+
 
     this.chatClient = ChatClient.builder(chatModel)
       .defaultSystem(buildSystemPrompt())
@@ -43,7 +53,7 @@ public class ConverseWithAixolotl implements ConverseWithAssistant {
         MessageChatMemoryAdvisor.builder(chatMemory)
           .conversationId(UUID.randomUUID().toString())
         .build(),
-        new QuestionAnswerAdvisor(vectorStore),
+        QuestionAnswerAdvisor.builder(vectorStore).build(),
         new SafeGuardAdvisor(sensitiveWords)
       )
       .build();

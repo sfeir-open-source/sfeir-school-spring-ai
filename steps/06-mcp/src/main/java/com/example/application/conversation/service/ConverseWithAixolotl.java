@@ -1,6 +1,7 @@
 package com.example.application.conversation.service;
 
 import com.example.application.conversation.ConverseWithAssistant;
+import com.example.application.conversation.rag.ModularRagService;
 import com.example.application.conversation.tool.EmailSenderTool;
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.ai.chat.client.advisor.MessageChatMemoryAdvisor;
@@ -9,6 +10,7 @@ import org.springframework.ai.chat.client.advisor.vectorstore.QuestionAnswerAdvi
 import org.springframework.ai.chat.memory.ChatMemory;
 import org.springframework.ai.chat.model.ChatModel;
 import org.springframework.ai.chat.prompt.SystemPromptTemplate;
+import org.springframework.ai.rag.advisor.RetrievalAugmentationAdvisor;
 import org.springframework.ai.vectorstore.SearchRequest;
 import org.springframework.ai.vectorstore.VectorStore;
 import org.springframework.ai.vectorstore.filter.FilterExpressionBuilder;
@@ -27,31 +29,26 @@ public class ConverseWithAixolotl implements ConverseWithAssistant {
 
   private final ChatClient chatClient;
 
+  private final ModularRagService modularRagService;
+
   public ConverseWithAixolotl(ChatModel chatModel,
                               ChatMemory chatMemory,
                               VectorStore vectorStore,
                               EmailSenderTool emailService,
-                              @Value("${sensitiveWords}")  List<String> sensitiveWords) {
+                              @Value("${sensitiveWords}")  List<String> sensitiveWords,
+                              ModularRagService modularRagService) {
 
-    FilterExpressionBuilder b = new FilterExpressionBuilder();
+    this.modularRagService = modularRagService;
 
-    SearchRequest searchRequest = SearchRequest
-      .builder()
-      .filterExpression(
-        // préciser la recherche de document dans la catégorie adminrh
-        b.eq("category", "adminrh")
-          .build()
-      )
-      .similarityThreshold(0.9)
-      .topK(MAX_RESULTS)
-      .build();
+    // RetrievalAugmentationAdvisor retrievalAugmentationAdvisor = modularRagService.retrievalAugmentationAdvisor(ChatClient.builder(chatModel));
+
 
     this.chatClient = ChatClient.builder(chatModel)
       .defaultSystem(buildSystemPrompt())
       .defaultTools(emailService)
       .defaultAdvisors(
         MessageChatMemoryAdvisor.builder(chatMemory).build(),
-        new QuestionAnswerAdvisor(vectorStore),
+        QuestionAnswerAdvisor.builder(vectorStore).build(),
         new SafeGuardAdvisor(sensitiveWords)
       )
       .build();
