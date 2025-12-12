@@ -20,7 +20,7 @@
 
 ## Intelligence articificielle
 
-<img src="./assets/images/ai_def.svg" class="float-right" width="350px"/>
+![](./assets/images/ai_hierarchy.png 'float-right h-300')
 
 Définition ISO
 
@@ -31,7 +31,7 @@ Définition ISO
 
 ## Intelligence articificielle générative
 
-<img src="./assets/images/gen_ai.svg" class="float-right" width="350px"/>
+![](./assets/images/gen_ai_hierarchy.png 'float-right h-300')
 
 Définition ministère de la culture
 
@@ -58,3 +58,5 @@ Modèles d'apprentissage automatique qui ont été formés sur de grandes quanti
 Ces modèles peuvent générer du texte cohérent et contextuellement pertinent en fonction des données d'entrée.
 Ils sont utilisés pour des applications telles que la génération automatique de textes, la traduction automatique
 et la rédaction assistée par ordinateur.
+
+transformer vs rnn
