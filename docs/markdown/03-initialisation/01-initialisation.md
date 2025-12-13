@@ -7,7 +7,7 @@
 Allez sur le site : https://start.spring.io/
 <br></br>
 <div class="r-hstack">
-  <img src="../../assets/images/spring_initializr.png" width="60%" height="40%" alt="initializr">
+  <img src="./assets/images/spring_initializr.png" width="60%" height="40%" alt="initializr">
 </div>
 
 

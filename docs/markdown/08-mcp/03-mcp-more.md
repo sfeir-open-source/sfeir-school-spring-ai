@@ -1,6 +1,6 @@
 <!-- .slide -->
 
-# Protocole MCP <img src="../../assets/images/mcp.png" alt="MCP" style="height:80px;vertical-align:middle;margin-left:1rem;" />
+# Protocole MCP <img src="./assets/images/mcp.png" alt="MCP" style="height:80px;vertical-align:middle;margin-left:1rem;" />
 
 ### Ce n'est pas tout
 

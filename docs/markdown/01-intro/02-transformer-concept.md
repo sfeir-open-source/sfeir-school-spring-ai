@@ -10,11 +10,11 @@
   <div class="r-stack">
     <div style="display: flex; align-items: center; justify-content: space-between;">
       <div style="flex: 1; padding-right: 5px;">
-        <img class= "fragment fade-left" src="../../assets/images/attention_research_1.png" width="60%" height="120%" alt="transformers">
+        <img class= "fragment fade-left" src="./assets/images/attention_research_1.png" width="60%" height="120%" alt="transformers">
       </div>
       <div style="flex: 1; display: flex; flex-direction: column; gap: 220px; padding-left: 5px;">
-          <img class= "fragment fade-left" src="../../assets/images/qkv.png" width="60%" height="20%" alt="qkv">
-          <img class= "fragment fade-left" src="../../assets/images/encodeur-decodeur.png" width="90%" height="40%" alt="encodeur-decodeur">
+          <img class= "fragment fade-left" src="./assets/images/qkv.png" width="60%" height="20%" alt="qkv">
+          <img class= "fragment fade-left" src="./assets/images/encodeur-decodeur.png" width="90%" height="40%" alt="encodeur-decodeur">
       </div>
     </div>
   </div>
