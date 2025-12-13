@@ -1,9 +1,8 @@
-<!-- .slide: class="quote-slide" -->
-<blockquote>
-  <cite>
-    Attention is all you need...
-  </cite>
-</blockquote>
+<!-- .slide: class="quote-slide full-center" -->
+<span style="font-size: 6rem; font-weight: bold">Attention is all you need...</span>
+
+[arXiv:1706.03762 [cs.CL]](https://arxiv.org/abs/1706.03762)
+<!-- .element: class="credits" -->
 
 ##==##
 <section>
@@ -71,13 +70,8 @@ Notes:
 Le Décodeur (Decoder) : Génère le texte de sortie (traduction, réponse, etc.).
 
 ##==##
-<!-- .slide: class="quote-slide" -->
-
-<blockquote>
-  <cite>
-    Un agent ça agit...
-  </cite>
-</blockquote>
+<!-- .slide: class="quote-slide full-center" -->
+<span style="font-size: 6rem; font-weight: bold">Un agent ça agit...</span>
 
 ##==##
 

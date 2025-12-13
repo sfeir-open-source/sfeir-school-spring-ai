@@ -29,7 +29,7 @@ Spring AI propose des API simples d'utilisation pour définir des outils et gér
 
 ##==##
 
-
+<!-- .slide: class="with-code"-->
 # Tools calling
 ## Définir un outil
 
@@ -51,11 +51,12 @@ class DateTimeTools {
 
 }
 ```
+<!-- .element: class="alone" -->
 
 
 ##==##
 
-
+<!-- .slide: class="with-code big-code"-->
 # Tools calling
 ## Spécifier des paramètres d'entrée
 
@@ -69,7 +70,7 @@ class DateTimeTools {
     }
 }
 ```
-
+<!-- .element: class="alone" -->
 
 ##==##
 
@@ -79,6 +80,7 @@ class DateTimeTools {
 
 L'API `ToolContext` vous permet également de transmettre des informations à votre outil :
 
+<!-- .slide: class="with-code"-->
 ```java
 class CustomerTools {
 
@@ -111,6 +113,7 @@ System.out.println(response);
 # Tools calling
 ## Spécifier le format de sortie
 
+<!-- .slide: class="with-code big-code"-->
 ```java
 class CustomerTools {
 
@@ -118,13 +121,13 @@ class CustomerTools {
     Customer getCustomerInfo(Long id) {
         return customerRepository.findById(id);
     }
-
 }
 ```
+<!-- .element: class="alone" -->
 
 ##==##
 
-
+<!-- .slide: class="with-code"-->
 # Tools calling
 ## Appeler un outil
 
@@ -141,3 +144,4 @@ String response = ChatClient.create(chatModel)
 
 System.out.println(response);
 ```
+<!-- .element: class="alone" -->

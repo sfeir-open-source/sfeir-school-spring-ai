@@ -5,12 +5,12 @@
 
 ##==##
 
-
+<!-- .slide: class="full-center" -->
 # Définition
 
 
 
-Une idée ?
+<span style="font-size: 6rem">Une idée ?</span>
 
 
 ##==##
@@ -20,7 +20,7 @@ Une idée ?
 
 ## Intelligence articificielle
 
-![](./assets/images/ai_def.svg 'float-right')
+<img src="./assets/images/ai_def.svg" class="float-right" width="350px"/>
 
 Définition ISO
 
@@ -31,7 +31,7 @@ Définition ISO
 
 ## Intelligence articificielle générative
 
-![](./assets/images/gen_ai.svg 'float-right')
+<img src="./assets/images/gen_ai.svg" class="float-right" width="350px"/>
 
 Définition ministère de la culture
 

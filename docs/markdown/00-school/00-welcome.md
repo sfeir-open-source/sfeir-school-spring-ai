@@ -8,7 +8,7 @@
 ##==##
 
 
-<!-- .slide: class="bg-blur" -->
+<!-- .slide: class="bg-blur mask" -->
 
 <br>
 
