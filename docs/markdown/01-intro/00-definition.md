@@ -59,4 +59,4 @@ Ces modèles peuvent générer du texte cohérent et contextuellement pertinent 
 Ils sont utilisés pour des applications telles que la génération automatique de textes, la traduction automatique
 et la rédaction assistée par ordinateur.
 
-transformer vs rnn
+transformer vs rnn vs cnn

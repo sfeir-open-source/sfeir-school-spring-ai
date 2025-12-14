@@ -1,6 +1,6 @@
 <!-- .slide: class="exercice" -->
 
-# RAG
+# Helloworld
 
 ## Lab 01
 

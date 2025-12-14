@@ -6,16 +6,49 @@
 
 ##==##
 <section>
-  <h1>Les transformers</h1>
-  <div class="r-stack">
-    <div style="display: flex; align-items: center; justify-content: space-between;">
-      <div style="flex: 1; padding-right: 5px;">
-        <img class= "fragment fade-left" src="./assets/images/attention_research_1.png" width="60%" height="120%" alt="transformers">
-      </div>
-      <div style="flex: 1; display: flex; flex-direction: column; gap: 220px; padding-left: 5px;">
-          <img class= "fragment fade-left" src="./assets/images/qkv.png" width="60%" height="20%" alt="qkv">
-          <img class= "fragment fade-left" src="./assets/images/encodeur-decodeur.png" width="90%" height="40%" alt="encodeur-decodeur">
-      </div>
+  <h1>Les Transformers</h1>
+
+  <div style="padding-bottom: 20px;">
+    <h3>L'Attention est Tout ce Dont Vous Avez Besoin</h3>
+    <p class="fragment fade-in" data-fragment-index="1">
+      Le Transformer a révolutionné le traitement du langage naturel (NLP) en introduisant l'architecture basée uniquement sur les mécanismes d'attention.
+    </p>
+  </div>
+  <div style="display: flex; justify-content: space-around; align-items: flex-start; margin-top: 10px; max-height: 70vh;">
+    <div style="flex: 1; text-align: center; padding: 0 5px;">
+      <h4 class="fragment fade-in" data-fragment-index="2">Architecture Globale</h4>
+      <img 
+        class="fragment fade-left" 
+        data-fragment-index="3"
+        src="../../assets/images/attention_research_1.png" 
+        alt="Architecture complète du Transformer" 
+        style="max-width: 95%; max-height: 50vh; height: auto;"
+      >
+    </div>
+    <div style="flex: 1; text-align: center; padding: 0 5px;">
+      <h4 class="fragment fade-in" data-fragment-index="2">Mécanisme QKV</h4>
+      <img 
+        class="fragment fade-left" 
+        data-fragment-index="4"
+        src="../../assets/images/qkv.png" 
+        alt="Schéma Query, Key, Value" 
+        style="max-width: 95%; max-height: 50vh; height: auto;"
+      >
+    </div>
+    <div style="flex: 1; text-align: center; padding: 0 5px;">
+      <h4 class="fragment fade-in" data-fragment-index="2">Explorateur Interactif</h4>
+      <a 
+        href="https://poloclub.github.io/transformer-explainer/" 
+        target="_blank" 
+        class="fragment fade-up" 
+        data-fragment-index="5"
+      >
+        <img 
+          src="../../assets/images/transformer_explainer.png" 
+          alt="Lien vers l'explicateur interactif"
+          style="max-width: 95%; max-height: 50vh; height: auto;"
+        >
+      </a>
     </div>
   </div>
 </section>
