@@ -15,7 +15,7 @@ public class ListCalendarRecords {
 
   private final RetrieveRecords retrieveRecords;
 
-  @Tool(name="listCalendarItems", description = "List the user agenda, calendar and meeting items, tasks and appointments")
+  @Tool(name="listCalendarItems", description = "List the user agenda, calendar and meeting items, tasks and appointments. No parameters needed.")
   public List<CalendarRecord> listCalendarItems() {
     return retrieveRecords.getAll();
   }

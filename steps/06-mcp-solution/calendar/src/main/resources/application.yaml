@@ -5,8 +5,10 @@ spring:
     mcp:
       server:
         name: calendar-server
-        sse-message-endpoint: /mcp/message
+        protocol: SSE
         stdio: false
+        sse-message-endpoint: /mcp/message
+        type: SYNC
   jpa:
     defer-datasource-initialization: true
   h2:

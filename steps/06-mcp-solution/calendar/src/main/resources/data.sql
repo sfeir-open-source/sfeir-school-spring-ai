@@ -35,4 +35,13 @@ VALUES (
     "to": "11:30:00",
     "description": "Sprint planning session"
     }'
+    ),
+    (
+    RANDOM_UUID (),
+    JSON '{
+    "day": "2025-12-18",
+    "from": "09:00:00",
+    "to": "17:00:00",
+    "description": "Sfeir school - Créez votre agent IA en Java avec Spring AI par Sylvain et Jonathan."
+    }'
     );

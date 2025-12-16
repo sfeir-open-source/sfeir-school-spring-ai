@@ -63,12 +63,11 @@ public class ConverseWithAixolotl implements ConverseWithAssistant {
   @Override
   public Flux<String> converse(final String prompt) {
 
-    String content = this.chatClient
+    return this.chatClient
       .prompt()
       .user(prompt)
-      .call().content();
-
-    return Flux.just(content);
+      .stream()
+      .content();
   }
 
 
