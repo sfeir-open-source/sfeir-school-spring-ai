@@ -20,7 +20,7 @@
       <img 
         class="fragment fade-left" 
         data-fragment-index="3"
-        src="../../assets/images/attention_research_1.png" 
+        src="./assets/images/attention_research_1.png" 
         alt="Architecture complète du Transformer" 
         style="max-width: 95%; max-height: 50vh; height: auto;"
       >
@@ -30,7 +30,7 @@
       <img 
         class="fragment fade-left" 
         data-fragment-index="4"
-        src="../../assets/images/qkv.png" 
+        src="./assets/images/qkv.png" 
         alt="Schéma Query, Key, Value" 
         style="max-width: 95%; max-height: 50vh; height: auto;"
       >
@@ -44,7 +44,7 @@
         data-fragment-index="5"
       >
         <img 
-          src="../../assets/images/transformer_explainer.png" 
+          src="./assets/images/transformer_explainer.png" 
           alt="Lien vers l'explicateur interactif"
           style="max-width: 95%; max-height: 50vh; height: auto;"
         >
