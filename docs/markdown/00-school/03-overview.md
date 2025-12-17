@@ -13,3 +13,20 @@
 </ul>
 
 <!-- .element: class="center" -->
+
+##==##
+
+<!-- .slide: class="transition-bg-blue-3 with-code big-code" -->
+
+## Avant de commencer...
+
+<section>
+  <pre>
+    <code data-trim data-noescape data-line-numbers="1|2-3|4">
+        git clone --depth 1 https://github.com/sfeir-open-source/sfeir-school-spring-ai.git
+        cd docs
+        npm install
+        npm run serve
+    </code>
+    </pre>
+</section>

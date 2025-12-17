@@ -4,7 +4,7 @@
 
 ## Lab 04
 
-<small>Lab 04 - Mettre en place une architecture RAG pour augmenter notre Aixolotl.</small>
+<small>Lab 04 - Mettons en place une architecture RAG pour augmenter notre Aixolotl</small>
 
 ---
 

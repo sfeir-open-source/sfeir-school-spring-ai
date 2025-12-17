@@ -1,4 +1,4 @@
-# Solution Lab 04 - Retrieve augmented generation (RAG) - Apprenons à notre AIxolotl 📑
+# Solution Lab 04 - Retrievel-augmented generation (RAG) - Apprenons à notre AIxolotl 📑
 
 
 ## Ingestion des documents externes
@@ -203,7 +203,7 @@ Il est possible de lui spécifier une requête de recherche par similarité :
     .builder()
     .filterExpression(
       // préciser la recherche de document dans la catégorie adminrh
-      b.eq("category", "adminrh")
+      new FilterExpressionBuilder().eq("category", "adminrh")
         .build()
     )
     .similarityThreshold(0.9)
@@ -275,11 +275,10 @@ Cette étape concerne la récupération des documents en base. Etape déjà abor
 
 ```java
   private DocumentRetriever documentRetriever() {
-    FilterExpressionBuilder b = new FilterExpressionBuilder();
     return VectorStoreDocumentRetriever.builder()
                                        .vectorStore(this.vectorStore)
                                        .filterExpression(
-                                         b.eq("category", "adminrh")
+                                         new FilterExpressionBuilder().eq("category", "adminrh")
                                           .build()
                                        )
                                        .build();

@@ -1,13 +1,13 @@
-# Lab 04 - Retrieve augmented generation (RAG) - Apprenons à notre AIxolotl 📑
+# Lab 04 - Retrievel-augmented generation (RAG) - Apprenons à notre AIxolotl 📑
 Maintenant qu'AIxolotl se souvient de ses échanges, il ne lui manque plus 
 qu'une chose pour devenir un véritable assistant d'onboarding. Il doit avoir accès à un
 ensemble de documents auquel il n'a pas eu accès lors de son entrainement initial. 
 
-La génération augmentée de récupération ou RAG (Retrieval Augmented Generation) va nous
+La génération augmentée de récupération ou RAG (Retrieval-augmented generation) va nous
 permettre de compléter les données que contient le LLM avec une sélection de sources de
 connaissances externes.
 
-Ainsi dans ce 4ᵉ lab, nous allons apprendre à travailler avec une base de données
+Dans ce 4ᵉ lab, nous allons apprendre à travailler avec une base de données
 vectorielle, technologie indispensable à cette méthode. 
 
 ## Ce qu'il faut faire
@@ -16,7 +16,7 @@ Dans ce lab vous devrez :
 
 ### Initialiser la base de données vectorielle
 
-- exécuter le docker-compose.yml fourni à la racine du projet.
+- Exécuter le docker-compose.yml fourni à la racine du projet.
 Il vous permettra de récupérer une image docker pgvector, base de données vectorielle. Il vous
 faudra lancer le script init.sql pour l'initialiser :
 
@@ -35,11 +35,15 @@ CREATE TABLE IF NOT EXISTS vector_store (
 CREATE INDEX ON vector_store USING HNSW (embedding vector_cosine_ops);
 ```
 
-💡 : *avec le starter `spring-ai-pgvector-store-spring-boot-starter` il n'est plus nécessaire de charger
+💡 *Avec le starter `spring-ai-pgvector-store-spring-boot-starter` il n'est plus nécessaire de charger
 le script sql, il est exécuté par défaut lorsque la propriété `spring.ai.vectorstore.pgvector.initialize-schema`
 est mise à true*
 
-- ajouter au pom.xml la dépendance suivante : 
+⚠️ Pour les utilisateurs de MacOS utilisant `Colima`, lancez ce dernier avec le type de montage `virtiofs` :
+
+`colima start --kubernetes=false --mount-type=virtiofs`
+
+- Ajouter au pom.xml la dépendance suivante : 
 ```xml
     <!-- Vector Databases -->
     <dependency>

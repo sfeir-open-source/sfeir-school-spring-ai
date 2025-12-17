@@ -1,40 +1,33 @@
-package com.example.application.conversation.configuration;
+package com.example.application.config;
 
-import lombok.Data;
 import org.springframework.ai.chat.memory.ChatMemory;
 import org.springframework.ai.chat.messages.Message;
-import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-@Component
-@Data
 public class AixolotlMemory implements ChatMemory {
 
-  private static final Map<String, List<Message>> inMemoryMessages = new ConcurrentHashMap<>();
-
-  private int lastN = 50;
+  final Map<String, List<Message>> redisStore = new ConcurrentHashMap<>();
 
   @Override
   public void add(String conversationId, List<Message> messages) {
-    inMemoryMessages.computeIfAbsent(conversationId, id -> new ArrayList<>()).addAll(messages);
+    redisStore.computeIfAbsent(conversationId, id -> new ArrayList<Message>()).addAll(messages);
   }
 
   @Override
   public List<Message> get(String conversationId) {
-    List<Message> messages = inMemoryMessages.getOrDefault(conversationId, new ArrayList<>());
+    List<Message> messages = redisStore.getOrDefault(conversationId, new ArrayList<>());
     return messages
       .stream()
-      .skip(Math.max(0, messages.size() - lastN))
+      .skip(Math.max(0, messages.size()) - 50)
       .toList();
   }
 
   @Override
   public void clear(String conversationId) {
-    inMemoryMessages.clear();
+    redisStore.get(conversationId).clear();
   }
-
 }

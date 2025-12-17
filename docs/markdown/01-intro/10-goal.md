@@ -13,7 +13,7 @@ Créé in 2023 par Mark Pollack et Christian Tzolov
 
 Inspiré de LangChain et LlamaIndex
 
-version actuel : Spring AI 1.1.0
+Version actuel : Spring AI 1.1.2
 
 Basé sur Spring Framework 6.1 et Spring Boot 3.3
 

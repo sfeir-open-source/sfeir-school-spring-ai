@@ -20,6 +20,6 @@
   </appender>
 
   <root level="INFO">
-    <appender-ref ref="LOKI" />
+    <!-- <appender-ref ref="LOKI" /> -->
   </root>
 </configuration>

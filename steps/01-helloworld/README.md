@@ -4,7 +4,7 @@
 
 La structure de l'application étant déjà faite, vous n'avez plus qu'à vous concentrer sur la construction
 de votre Aixolotl.
-Une application front-end est également déjà disponible, vous le trouverez dans le dossier ./aixolotl-chat-ui à la racine du repo.
+Une application front-end est également déjà disponible, vous le trouverez dans le dossier `./aixolotl-chat-ui` à la racine du repo.
 Une fois dedans exécuter les commandes suivantes : 
 
 * `npm install`
@@ -12,7 +12,16 @@ Une fois dedans exécuter les commandes suivantes :
 
 Votre ui est prête !
 
-#### retour au projet 01-helloworld
+Maintenant, vérifiez que tous les exos Spring Boot compilent tous correctement. Dirigez-vous vers le dossier `steps/` puis lancez la commande suivante :
+
+```
+./mvnw compile
+```
+
+
+> 💡 Après ces étapes, n'oubliez pas de télécharger un modèle via la commande `ollama pull`
+
+#### Revenons au projet 01-helloworld
 
 Dans l'application vous trouverez le controleur http permettant de connecter l'interface web et le back-end existe déjà (classe `ConverseWithAixolotlHttpApi`).
 Ce dernier utilise un objet de type `ConverseWithAssistant` pour envoyer le prompt de l'utilisateur au modèle choisi.

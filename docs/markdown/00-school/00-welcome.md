@@ -1,8 +1,8 @@
 <!-- .slide: class="first-slide" sfeir-level="2" sfeir-techno="Spring AI" -->
 
-# **Welcome to SFEIR School**
+# **Welcome**
 
-## **Spring AI**
+## **Créez un agent IA en Java avec Spring AI 🍃**
 
 
 ##==##

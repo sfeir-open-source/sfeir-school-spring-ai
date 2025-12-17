@@ -34,7 +34,6 @@ de la conversation ou l'ajout de contexte
 ```java
 var chatClient = ChatClient.builder(chatModel)
     .defaultAdvisors(
-        MessageChatMemoryAdvisor.builder(chatMemory).build(), // chat-memory advisor
         QuestionAnswerAdvisor.builder((vectorStore).builder() // RAG advisor
     )
     .build();

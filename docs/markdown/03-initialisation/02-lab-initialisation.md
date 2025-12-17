@@ -1,6 +1,6 @@
 <!-- .slide: class="exercice" -->
 
-# Helloworld
+# Hello, World! 🤖
 
 ## Lab 01
 

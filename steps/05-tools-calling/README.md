@@ -1,7 +1,7 @@
 # Lab 05 - Tools calling - Donnons à notre AIxolotl la capacité d'interagir avec le monde extérieur 🌍
-Plus qu'une dernière fonctionnalité et notre AIxolotl sera prêt à être déployé 🚀. Donnons lui la capacité  d'appeler des outils externes.
+Donnons maintenant à notre agent AIxolotl la capacité  d'utiliser des outils externes.
 En effet, en tant qu'assistant d'onboarding, nous aimerions qu'il puisse faire à notre place certaines tâches essentielles en tant que nouvel 
-arrivant, mais sans grande valeur ajoutée. Par exemple, il pourrait s'enregistrer la maillist de l'équipe, envoyer un mail de demande de droits au service 
+arrivant, mais sans grande valeur ajoutée. Par exemple, il pourrait enregistrer la maillist de l'équipe, envoyer un mail de demande de droits au service 
 informatique, ou encore poster un message de bienvenue dans une conversation.
 
 ## Ce qu'il faut faire
@@ -33,6 +33,13 @@ spring.mail.username=0c43d774d76cb2
 spring.mail.password=8c1097c006d2f9
 spring.mail.properties.mail.smtp.auth=true
 spring.mail.properties.mail.smtp.starttls.enable=true
+```
+
+### Home sweet home
+Si vous préférez rester en local, exécutez la commande suivante dans un terminal pour démarrer un serveur SMTP de test :
+
+```shell
+docker run --rm -it -p 5000:80 -p 2525:25 rnwood/smtp4dev
 ```
 
 ### Le définir comme un outil appelable par le LLM

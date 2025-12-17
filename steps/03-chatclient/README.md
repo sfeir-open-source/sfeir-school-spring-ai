@@ -15,7 +15,7 @@ Pour ce lab vous devez :
 - Dans le package `configuration`, créer la classe `AixolotlMemory` qui implémente l'interface `ChatMemory` de Spring AI 
 Cette classe devra stocker les messages de la conversation dans une Map
   - Implémenter les méthodes add, get et clear de l'interface `ChatMemory`
-- Utiliser l'advisor `MessageChatMemoryAdvisor` pour donner de la mémoire à votre agent Aixolotl
+- Utiliser le builder de l'advisor `MessageChatMemoryAdvisor` pour donner de la mémoire à votre agent Aixolotl
 - Amusez-vous à modérer une liste de mots via l'advisor `SafeGuardAdvisor`
 
 *Vous trouverez [ici](https://docs.spring.io/spring-ai/reference/api/chatclient.html) la documentation sur l'API `ChatClient`*

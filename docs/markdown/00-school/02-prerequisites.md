@@ -2,8 +2,6 @@
 <!-- .slide: class="transition-bg-green-4" -->
 # Tour de table
 
-# SFEIR bg green 4
-
 ##==##
 
 <!-- .slide: class="transition-bg-blue-1 tc-multiple-columns" -->

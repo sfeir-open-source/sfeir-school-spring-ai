@@ -60,22 +60,30 @@ Deux possibilités :
 
 ```java
 public interface ChatModel extends Model<Prompt, ChatResponse> {
-
-	default String call(String message) {...}
-
+  
+    default String call(String message) {...}
+  
     @Override
-	ChatResponse call(Prompt prompt);
+    ChatResponse call(Prompt prompt);
 }
 ```
 
-* ```StreamingChatModel``` pour gérer des flux de données
+* ```StreamingChatModel``` pour gérer les réponses en streaming 
 
 ```java
 public interface StreamingChatModel extends StreamingModel<Prompt, ChatResponse> {
-
+  
     default Flux<String> stream(String message) {...}
-
+    
     @Override
-	Flux<ChatResponse> stream(Prompt prompt);
+    Flux<ChatResponse> stream(Prompt prompt);
 }
 ```
+
+##==##
+
+# Aixoltl, l'agent que vous allez créer et augmenter tout au long de la journée 
+
+<img src="./assets/images/aixo.png">
+
+<!-- .element: class="center" -->
