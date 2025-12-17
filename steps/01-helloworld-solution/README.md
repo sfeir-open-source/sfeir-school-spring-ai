@@ -2,7 +2,7 @@
 
 ## Avec auto-configuration
 
-Nous allons tirer parti de la dépendance `spring-ai-ollama-spring-boot-starter`.
+Nous allons tirer parti de la dépendance `spring-ai-starter-model-ollama`.
 Cette dernière contient une classe `OllamaChatModel` qui implémente l'interface `ChatModel`.
 Elle est automatiquement configurée et mise à disposition pour nous sous forme de `@Bean` 🤗.
 Elle contient l'URL par défaut d'Ollama et autres paramètres pertinents.
