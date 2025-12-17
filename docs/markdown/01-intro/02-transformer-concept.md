@@ -6,7 +6,7 @@
 
 ##==##
 <section>
-  <h1>Les Transformers</h1>
+  <h1>Les Transformers <img src="./assets/images/optimus_prime.jpg" alt="MCP" style="height:80px;vertical-align:middle;margin-left:1rem;" /></h1>
 
   <div style="padding-bottom: 20px;">
     <h3>L'Attention est Tout ce Dont Vous Avez Besoin</h3>

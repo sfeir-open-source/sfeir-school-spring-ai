@@ -83,6 +83,14 @@ function mcpSlides() {
     `${directory}03-mcp-more.md`
   ]
 }
+function conclusionSlides() {
+  const directory = '09-conclusion/';
+  return [
+    //
+    `${directory}00-TITLE.md`,
+    `${directory}01-conclusion.md`
+  ]
+}
 
 
 function formation() {
@@ -96,7 +104,8 @@ function formation() {
     ...chatClientSlides(), //
     ...ragSlides(), //
     ...toolsCallingSlides(), //
-    ...mcpSlides() //
+    ...mcpSlides(), //
+    ...conclusionSlides() //
   ].map((slidePath) => {
     return { path: slidePath };
   });

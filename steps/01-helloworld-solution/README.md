@@ -2,7 +2,7 @@
 
 ## Avec auto-configuration
 
-Nous allons tirer parti de la dépendance `spring-ai-ollama-spring-boot-starter`.
+Nous allons tirer parti de la dépendance `spring-ai-starter-model-ollama`.
 Cette dernière contient une classe `OllamaChatModel` qui implémente l'interface `ChatModel`.
 Elle est automatiquement configurée et mise à disposition pour nous sous forme de `@Bean` 🤗.
 Elle contient l'URL par défaut d'Ollama et autres paramètres pertinents.
@@ -17,7 +17,7 @@ On peut enfin commencer à utiliser un modèle d'IA sans avoir à nous soucier d
 
 <dependency>
   <groupId>org.springframework.ai</groupId>
-  <artifactId>spring-ai-ollama-spring-boot-starter</artifactId>
+  <artifactId>spring-ai-starter-model-ollama</artifactId>
   <version>${spring-ai.version}</version>
 </dependency>
 
@@ -47,7 +47,7 @@ Si aucun modèle n'est paramétré, Mistral sera le choix par défaut, cocorico 
 ## Sans auto-configuration
 
 Dans certaines situations, il peut être préférable de ne pas utiliser l'auto-configuration.
-Dans ce cas, il faudra importer la dépendance `spring-ai-ollama` au lieu de `spring-ai-ollama-spring-boot-starter`.
+Dans ce cas, il faudra importer la dépendance `spring-ai-ollama` au lieu de `spring-ai-starter-model-ollama`.
 Cela permettra d'instancier manuellement l'instance `OllamaChatModel`. Il suffit de créer une classe de
 configuration annotée avec `@Configuration`, dans laquelle on définira un `@Bean` qui retournera l'instance `OllamaChatModel`.
 Cette approche donne un contrôle total sur la configuration sans forcément passer par les fichiers de propriétés par exemple.
